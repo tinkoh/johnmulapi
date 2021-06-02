@@ -1,0 +1,23 @@
+{
+  "name": "johnmulapi",
+  "version": "1.0.0",
+  "description": "An API for John Mulaney quotes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinkoh/johnmulapi.git"
+  },
+  "author": "Given Suman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinkoh/johnmulapi/issues"
+  },
+  "homepage": "https://github.com/tinkoh/johnmulapi#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
