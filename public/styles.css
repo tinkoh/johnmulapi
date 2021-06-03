@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+.transform {
+    transition-duration: 0.3s;
+
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+    margin: 0;
+}
+
+hr {
+    border: 1px solid black;
+    opacity: 0.5;
+    height: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #9E9E9E;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+}
+
+#header {
+    font-family: 'Karla', sans-serif;
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#quote-div {
+    font-family: 'Nunito', sans-serif;
+
+    margin-top: 50px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    max-width: 500px;
+    height: auto;
+}
+
+#quote {
+    font-size: 1.1rem;
+}
+
+#attribute {
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+#button-div {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    cursor: pointer;
+    transition-property: transform;
+}
+
+.btn:hover {
+    transform: scale(1.3);
+}
+
+#faq {
+    margin-right: 10px;
+}
+
+#refresh {
+    margin-left: 10px;
+}
+
+#footer {
+    font-family: 'Karla', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#me {
+    margin-left: auto;
+    font-size: 0.9rem;
+}
+
+#github {
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}
+
+.code {
+    font-family: 'Source Code Pro', monospace;
+    padding-left: 15px;
+}
+
+#code-text-div {
+    border-left: 2px solid blue;
+    margin-top: 15px;
+}
+
+.code-button {
+    cursor: pointer;
+}
+
+.faq-q {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#terminal {
+    margin-right: 18px;
+    color: blue;
+}
+
+#faq-div {
+    height: 0px;
+    overflow-y: hidden;
+}
+
+#footer-img {
+    position: relative;
+    top: 85px;
+}
+
+#footer-hr {
+    width: 500px;
+    margin-bottom: 35px;
+}
