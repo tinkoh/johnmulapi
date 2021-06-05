@@ -25,4 +25,4 @@ print(quote)
 ```
 
 ### Can I use this in a project?
-Please. Let me know how it goes.
+Please do. Let me know how it goes.
