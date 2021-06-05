@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="notranslate" translate="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">.
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>johnmul.api</title>
+    <title>johnmulapi</title>
 </head>
 <body>
+
     <div id='header'>
-        <h1>johnmul.api</h1>
+        <h1>johnmulapi</h1>
         <h2>An API for John Mulaney quotes</h2>
-        <a href='https://johnmulapi.herokuapp.com'>johnmulapi.herokuapp.com</a>
+        <a href='http://api.johnmulapi.com'>http://api.johnmulapi.com</a>
     </div>
+
+    <div id='container'>
+
     <div id='quote-div'>
         <div id='button-div'>
             <span id='faq' class='transform btn material-icons'>help_outline</span>
@@ -22,20 +27,26 @@
         <span id='quote'></span>
         <span id='attribute'>- John Mulaney</span>
     
+    </div>
+
     <div id='faq-div' class='transform'>
         <br><br>
-        <hr>
         <h2 class='faq-q'>How do I use this?</h2>
             <div id='code-div'>
-                <a id='terminal' class='code-button btn'><strong>>_</strong></a><a><strong id='javascript' class='code-button btn'>JS</strong></a>
+                <a id='terminal' class='code-button btn'><strong>>_</strong></a><a><strong id='javascript' class='code-button btn'>JS</strong></a><a><strong id='python' class='code-button btn'>PY</strong></a>
                 <br>
-                <div id='code-text-div'><span id='code' class='code'>$ curl johnmulapi.herokuapp.com</span></div>
+                <div id='code-text-div'><span id='code' class='code'>$ curl api.johnmulapi.com</span></div>
             </div>
             <br>
         <h2 class='faq-q'>Why did you make this?</h2>
         <p id='reason'></p>
+        <br>
+        <h2 class='faq-q'>Can I use this in my project?</h2>
+        <p>Please do. Let me know how it goes.</p>
     </div>
+
     </div>
+
     <div id='footer'>
         <img id='footer-img' src='./mulaneyweb.png' />
         <hr id='footer-hr'>
@@ -44,6 +55,7 @@
             <a href="https://github.com/tinkoh/johnmulapi"><img id='github' class='transform btn' src='https://img-premium.flaticon.com/png/512/25/25231.png?token=exp=1622682877~hmac=65f4ee66949df00f367f2502cde32c95' /></a>
         </div>
     </div>
+
 </body>
 <script src="./app.js"></script>
 </html>
