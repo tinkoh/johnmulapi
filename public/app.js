@@ -5,9 +5,9 @@ function getEle(id) {
 
 let quote = getEle('quote');
 function getQuote() {
-    fetch('http://api.johnmulapi.com')
+    fetch('https://api.johnmulapi.com')
     .then(res => res.json())
-    .then(data => quote.innerHTML = data.quote);
+    .then(data => {quote.innerHTML = data.quote; console.log(data.quote)});
 }
 
 getQuote(); // Start page load with quote
