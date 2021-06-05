@@ -1,7 +1,7 @@
-# johnmul.api
+# johnmulapi
 An API for John Mulaney quotes.  
   
-[johnmulapi.herokuapp.com](https://johnmulapi.herokuapp.com)
+[api.johnmulapi.com](http://api.johnmulapi.com)
 
 ### How do I use this?
 
