@@ -1,7 +1,8 @@
+/* Base stuff */
+
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 
 .transform {
     transition-duration: 0.3s;
@@ -30,6 +31,7 @@ body {
     background-color: #9E9E9E;
 }
 
+
 a {
     text-decoration: none;
 }
@@ -38,6 +40,8 @@ h1 {
     margin: 0;
     font-size: 3.5rem;
 }
+
+/* Top ========================== */
 
 #header {
     font-family: 'Karla', sans-serif;
@@ -60,9 +64,9 @@ h1 {
 
     display: flex;
     flex-direction: column;
-
-    max-width: 500px;
     height: auto;
+    width: auto;
+    max-width: 50ch;
 }
 
 #quote {
@@ -89,13 +93,58 @@ h1 {
     transform: scale(1.3);
 }
 
-#faq {
-    margin-right: 10px;
-}
-
 #refresh {
     margin-left: 10px;
 }
+
+
+#container {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 460px;
+}
+
+/* Middle ========================== */
+
+#faq-div {
+    height: 0px;
+    overflow-y: hidden;
+    font-family: 'Karla', sans-serif;
+    padding-left: 15px;
+    text-align: left;
+    margin-right: auto;
+}
+
+.code {
+    font-family: 'Source Code Pro', monospace;
+    padding-left: 15px;
+}
+
+#code-text-div {
+    border-left: 2px solid blue;
+    margin-top: 15px;
+    overflow: visible;
+    width: 100vw;
+}
+
+.code-button {
+    cursor: pointer;
+    margin-right: 18px;
+}
+
+#terminal {
+    color: blue;
+}
+
+.faq-q {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Bottom ========================== */
 
 #footer {
     font-family: 'Karla', sans-serif;
@@ -103,6 +152,10 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    position: relative;
+    bottom: 100px;
 }
 
 #me {
@@ -116,35 +169,6 @@ h1 {
     margin-left: 20px;
 }
 
-.code {
-    font-family: 'Source Code Pro', monospace;
-    padding-left: 15px;
-}
-
-#code-text-div {
-    border-left: 2px solid blue;
-    margin-top: 15px;
-}
-
-.code-button {
-    cursor: pointer;
-}
-
-.faq-q {
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-
-#terminal {
-    margin-right: 18px;
-    color: blue;
-}
-
-#faq-div {
-    height: 0px;
-    overflow-y: hidden;
-}
-
 #footer-img {
     position: relative;
     top: 85px;
@@ -153,4 +177,26 @@ h1 {
 #footer-hr {
     width: 500px;
     margin-bottom: 35px;
+}
+
+/* First break */
+
+@media all and (max-width: 785px) {
+    #code-text-div {
+        width: 300px;
+        overflow-x: scroll;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(0, 0, 0, 0.5);
+        border-bottom-width: 1px;
+        padding: 0 5px 5px;
+    }
+}
+
+/* Second break */
+
+@media all and (max-width: 440px) {
+    #header {
+        width: 100vw;
+        text-align: center;
+    }
 }
