@@ -6,12 +6,17 @@ An API for John Mulaney quotes.
 ### How do I use this?
 
 ```shell
-$ curl johnmulapi.herokuapp.com
+$ curl api.johnmulapi.com
 ```
 ```javascript
-fetch('https://johnmulapi.herokuapp.com')
+fetch('http://api.johnmulapi.com')
    .then(res => res.json())
    .then(data => console.log(data);
+```
+```python
+import requests
+quote = requests.get('http://api.johnmulapi.com')
+print(quote)
 ```
 ```json
 {
