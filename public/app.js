@@ -5,7 +5,7 @@ function getEle(id) {
 
 let quote = getEle('quote');
 function getQuote() {
-    fetch('https://johnmulapi.herokuapp.com')
+    fetch('http://api.johnmulapi.com')
     .then(res => res.json())
     .then(data => quote.innerHTML = data.quote);
 }
@@ -16,27 +16,29 @@ getQuote(); // Start page load with quote
 getEle('refresh').addEventListener('click', () => getQuote())
 
 // I should combine this to one DOM query
-let showTerminal = true;
-getEle('terminal').addEventListener('click', (e) => {
-    if (!showTerminal) {
-        getEle('code').innerHTML = 
-        '$ curl johnmulapi.herokuapp.com';
-        showTerminal = true;
-        getEle('terminal').style.color = 'blue';
-        getEle('javascript').style.color = 'black';
+let codeBlocks = {
+    'terminal' : '$ curl api.johnmulapi.com',
+    'javascript' : `fetch('http://api.johnmulapi.com')<br/>
+                    &nbsp;&nbsp;&nbsp;.then(res => res.json())<br/>
+                    &nbsp;&nbsp;&nbsp;.then(data => console.log(data.quote);`,
+    'python' : `import requests<br/>
+                &nbsp;&nbsp;quote = requests.get('http://api.johnmulapi.com')<br/>
+                &nbsp;&nbsp;print(quote.quote)`
+}
+let codeArray = document.getElementsByClassName('code-button')
+    for (i=0; i<codeArray.length; i++) {
+        let id = codeArray[i].id;
+        let idEle = getEle(id)
+        idEle.addEventListener('click', () => {
+            idEle.style.color = 'blue';
+            for (i=0; i<codeArray.length; i++) {
+                if (codeArray[i].id !== id) {
+                    getEle(codeArray[i].id).style.color = 'black';
+                }
+            }
+            getEle('code').innerHTML = codeBlocks[id];
+        })
     }
-});
-getEle('javascript').addEventListener('click', (e) => {
-    if (showTerminal) {
-        getEle('code').innerHTML = 
-        `fetch('https://johnmulapi.herokuapp.com')<br/>
-        &nbsp;&nbsp;&nbsp;.then(res => res.json())<br/>
-        &nbsp;&nbsp;&nbsp;.then(data => console.log(data);`;
-        showTerminal = false;
-        getEle('javascript').style.color = 'blue';
-        getEle('terminal').style.color = 'black';
-    }
-});
 
 // Start page with a random reason for FAQ page
 const reasons = [
@@ -55,10 +57,10 @@ function getReason() {
         } else {
             rnd = rnd + 1;
         }
-    } if (rnd >= reasons.length) {
+    } 
+    if (rnd >= reasons.length) {
         rnd = 0;
     }
-    console.log(rnd);
     let newReason = reasons[rnd];
     getEle('reason').innerHTML = newReason;
     currentReason = newReason;
@@ -69,10 +71,11 @@ getEle('faq').addEventListener('click', () => {
     let faqDiv = getEle('faq-div');
     if (!faqStatus) {
         getReason();
-        faqDiv.style.height = '350px';
+        faqDiv.style.height = '470px';
         faqStatus = true;
     } else {
         faqDiv.style.height = '0px';
         faqStatus = false;
     }
 });
+
