@@ -15,7 +15,6 @@ getQuote(); // Start page load with quote
 // Get new quote on refresh interaction
 getEle('refresh').addEventListener('click', () => getQuote())
 
-// I should combine this to one DOM query
 let codeBlocks = {
     'terminal' : '$ curl api.johnmulapi.com',
     'javascript' : `fetch('http://api.johnmulapi.com')<br/>
