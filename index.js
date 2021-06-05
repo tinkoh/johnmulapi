@@ -10,6 +10,7 @@ let router = express.Router();
 // Registers subdomain middleware for 'api.xyz.xyz'
 app.use(subdomain('api', router));
 app.use(cors());
+router.use(cors());
 // Fallback for all other routes to static page in 'public' dir
 app.use(express.static('public'));
 // Main express app
