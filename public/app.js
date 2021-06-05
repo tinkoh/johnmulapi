@@ -17,11 +17,11 @@ getEle('refresh').addEventListener('click', () => getQuote())
 
 let codeBlocks = {
     'terminal' : '$ curl api.johnmulapi.com',
-    'javascript' : `fetch('http://api.johnmulapi.com')<br/>
+    'javascript' : `fetch('https://api.johnmulapi.com')<br/>
                     &nbsp;&nbsp;&nbsp;.then(res => res.json())<br/>
                     &nbsp;&nbsp;&nbsp;.then(data => console.log(data.quote);`,
     'python' : `import requests<br/>
-                &nbsp;&nbsp;quote = requests.get('http://api.johnmulapi.com')<br/>
+                &nbsp;&nbsp;quote = requests.get('https://api.johnmulapi.com')<br/>
                 &nbsp;&nbsp;print(quote.quote)`
 }
 let codeArray = document.getElementsByClassName('code-button')
