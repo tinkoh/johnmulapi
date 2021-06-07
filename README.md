@@ -18,10 +18,9 @@ import requests
 quote = requests.get('https://api.johnmulapi.com')
 print(quote)
 ```
+☟
 ```json
-{
-    "quote": "I don't look older, I just look worse."
-}
+{"quote":"I don't look older, I just look worse."}
 ```
 
 ### Can I use this in a project?
