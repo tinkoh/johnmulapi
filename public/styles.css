@@ -12,6 +12,10 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+*:focus {
+    outline: none !important
+}
+
 html {
     margin: 0;
 }
@@ -46,8 +50,6 @@ h1 {
 #header {
     font-family: 'Karla', sans-serif;
     
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 5vh;
 
     display: flex;
@@ -155,7 +157,7 @@ h1 {
     justify-content: center;
 
     position: relative;
-    bottom: 45px;
+    bottom: 105px;
 }
 
 #me {
@@ -176,7 +178,7 @@ h1 {
 
 #footer-hr {
     width: 500px;
-    margin-bottom: 35px;
+    margin-bottom: 10px;
 }
 
 /* First break */
@@ -189,6 +191,10 @@ h1 {
         border-bottom-color: rgba(0, 0, 0, 0.5);
         border-bottom-width: 1px;
         padding: 0 5px 5px;
+    }
+
+    #footer-hr {
+        width: 90vw;
     }
 }
 
