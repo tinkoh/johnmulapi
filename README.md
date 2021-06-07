@@ -15,8 +15,10 @@ fetch('https://api.johnmulapi.com')
 ```
 ```python
 import requests
-quote = requests.get('https://api.johnmulapi.com')
-print(quote)
+quote = (requests
+.get('https://api.johnmulapi.com')
+.json())
+print(quote['quote'])
 ```
 ☟
 ```json
