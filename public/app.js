@@ -20,9 +20,11 @@ let codeBlocks = {
     'javascript' : `fetch('https://api.johnmulapi.com')<br/>
                     &nbsp;&nbsp;&nbsp;.then(res => res.json())<br/>
                     &nbsp;&nbsp;&nbsp;.then(data => console.log(data.quote);`,
-    'python' : `import requests<br/>
-                &nbsp;&nbsp;quote = requests.get('https://api.johnmulapi.com')<br/>
-                &nbsp;&nbsp;print(quote.quote)`
+    'python' : `import requests<br>
+        &nbsp;&nbsp;quote = (requests<br>
+        &nbsp;&nbsp;.get('https://api.johnmulapi.com')<br>
+        &nbsp;&nbsp;.json())<br>
+        &nbsp;&nbsp;print(quote['quote'])`
 }
 let codeArray = document.getElementsByClassName('code-button')
     for (i=0; i<codeArray.length; i++) {
