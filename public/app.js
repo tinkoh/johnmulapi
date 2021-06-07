@@ -66,7 +66,7 @@ function getReason() {
     getEle('reason').innerHTML = newReason;
     currentReason = newReason;
 }
-// Opens/closes FAQ window on faq interaction
+// Opens/closes FAQ window on FAQ interaction
 faqStatus = false;
 getEle('faq').addEventListener('click', () => {
     let faqDiv = getEle('faq-div');
