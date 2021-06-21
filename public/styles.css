@@ -167,8 +167,6 @@ h1 {
 
     position: relative;
     bottom: 105px;
-    z-index: -10;
-
     max-width: 100%;
 }
 
