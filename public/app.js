@@ -46,7 +46,7 @@ faqStatus = false;
 getEle('faq').addEventListener('click', () => {
     let faqDiv = getEle('faq-div');
     if (!faqStatus) {
-        faqDiv.style.height = '275px';
+        faqDiv.style.height = '375px';
         faqStatus = true;
     } else {
         faqDiv.style.height = '0px';
