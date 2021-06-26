@@ -7,7 +7,7 @@ let quote = getEle('quote');
 function getQuote() {
     fetch('https://api.johnmulapi.com')
     .then(res => res.json())
-    .then(data => {quote.innerHTML = data.quote; console.log(data.quote)});
+    .then(data => {quote.innerHTML = data.quote});
 }
 
 getQuote(); // Start page load with quote
