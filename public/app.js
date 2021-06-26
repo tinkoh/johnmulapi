@@ -27,19 +27,19 @@ let codeBlocks = {
                 &nbsp;&nbsp;print(quote['quote'])`
 }
 let codeArray = document.getElementsByClassName('code-button')
-    for (i=0; i<codeArray.length; i++) {
-        let id = codeArray[i].id;
-        let idEle = getEle(id)
-        idEle.addEventListener('click', () => {
-            idEle.style.color = 'blue';
-            for (i=0; i<codeArray.length; i++) {
-                if (codeArray[i].id !== id) {
-                    getEle(codeArray[i].id).style.color = 'black';
-                }
+for (i=0; i<codeArray.length; i++) {
+    let id = codeArray[i].id;
+    let idEle = getEle(id)
+    idEle.addEventListener('click', () => {
+        idEle.style.color = 'blue';
+        for (i=0; i<codeArray.length; i++) {
+            if (codeArray[i].id !== id) {
+                getEle(codeArray[i].id).style.color = 'black';
             }
-            getEle('code').innerHTML = codeBlocks[id];
-        })
-    }
+        }
+        getEle('code').innerHTML = codeBlocks[id];
+    })
+}
 
 // Opens/closes FAQ window on FAQ interaction
 faqStatus = false;
