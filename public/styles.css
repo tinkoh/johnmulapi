@@ -203,6 +203,8 @@ h1 {
 @media all and (max-width: 450px) {
     #footer-img, #faq-div, #faq {
         visibility: hidden;
+        height: 0;
+        width: 0;
     }
     #footer {
         position: absolute;
