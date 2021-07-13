@@ -1,7 +1,12 @@
+<div align="center">
+
 # johnmulapi
 An API for John Mulaney quotes.  
   
 [api.johnmulapi.com](https://api.johnmulapi.com)
+
+</div>
+
 
 ### How do I use this?
 
@@ -27,3 +32,7 @@ print(quote['quote'])
 
 ### Can I use this in a project?
 Please do. Let me know how it goes.
+
+<p align="center">
+<img alt="John Mulaney's Head" src='./public/assets/mulaney_head.png' />
+</p>
