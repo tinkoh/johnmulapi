@@ -34,5 +34,5 @@ print(quote['quote'])
 Please do. Let me know how it goes.
 
 <p align="center">
-<img alt="John Mulaney's Head" src='./public/assets/mulaney_head.png' />
+<img alt="John Mulaney's Head" src='./client/assets/mulaney_head.png' />
 </p>
