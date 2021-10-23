@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="description" content="An API for John Mulaney quotes.">
+    <meta property="og:image" content="./assets/mulaney.png" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets//favicon-16x16.png">
+    
+    <title>johnmulapi</title>
+</head>
+</head>
+<body>
+    <!-- Header section -->
+    <div id='header'>
+        <h1>johnmulapi</h1>
+        <h3>An API for John Mulaney quotes.</h3>
+        <a href='https://api.johnmulapi.com/'>api.johnmulapi.com</a>
+    </div>
+    <!-- Section display quotes and buttons -->
+    <div id='quote-div'>
+        <div>
+            <span id='faq' class='material-icons hover'>help_outline </span>
+            <span id='refresh' class='material-icons hover'>refresh</span>
+        </div>
+        <span id='quote'></span>
+        <span style>- John Mulaney</span>
+    </div>
+    <!-- Section revealed on pressing 'FAQ' button -->
+    <div id='faq-div'>
+        <h3>How do I use this?</h3>
+        <div>
+        <div> 
+            <button id='term' class='hover code-button'>>_</button>
+            <button id='js' class='hover code-button'>JS</button>
+            <button id='py' class='hover code-button'>PY</button>
+        </div>
+        <pre style='display: block'>
+curl https://api.johnmulapi.com/
+        </pre>
+        <pre>
+fetch('https://api.johnmulapi.com/')
+    .then(res => res.json())
+    .then(data => console.log(data))
+        </pre>
+        <pre>
+import requests
+quote = (requests
+.get('https://api.johnmulapi.com/')
+.json())
+print(quote)
+        </pre>
+        <h3>Can I use this?</h3>
+        <p>Please do. let me know how it goes.</p>
+        </div>
+    </div>
+    <!-- Footer section -->
+    
+    <img src='./assets/mulaney.png' alt='john mulaney' />
+    <div id='footer'>
+        <span>
+            Made with 💙 by <a href='https://given.codes/'>Given Suman</a>
+        </span>
+        <img class='hover' src='./assets/github.png' alt='github' />
+    </div>
+</body>
+<script src="./app.js"></script>
+</html>

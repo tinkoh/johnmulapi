@@ -3,7 +3,6 @@ const express = require('express');
 const subdomain = require('express-subdomain');
 const cors = require('cors');
 
-
 // Create app and router
 const app = express();
 let router = express.Router();
@@ -11,7 +10,7 @@ let router = express.Router();
 app.use(subdomain('api', router));
 app.use(cors());
 router.use(cors());
-// Fallback for all other routes to static page in 'public' dir
+// Fallback for all other routes to static page in 'client' dir
 app.use(express.static('public'));
 // Main express app
 app.get('/', (req, res, next) => {
@@ -27,6 +26,7 @@ router.get('/', (req, res) => {
     let json = JSON.stringify({ quote : quote });
     res.send(json);
 });
+// 404 fallback for all other endpoints
 router.get('/*', (req, res) => {
     res.json({ error : {
         code : '404',
