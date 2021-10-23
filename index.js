@@ -11,7 +11,7 @@ app.use(subdomain('api', router));
 app.use(cors());
 router.use(cors());
 // Fallback for all other routes to static page in 'client' dir
-app.use(express.static('public'));
+app.use(express.static('client'));
 // Main express app
 app.get('/', (req, res, next) => {
     if (req.subdomains.length > 0) {
