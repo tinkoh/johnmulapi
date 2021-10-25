@@ -1,8 +1,18 @@
 #faq-div {
     display: none;
     overflow: wrap;
-    transition: height 0.35s ease;
     max-width: 95vw;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
 }
 
 .code-button {
