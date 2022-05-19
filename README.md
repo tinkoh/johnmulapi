@@ -23,7 +23,7 @@ import requests
 quote = (requests
 .get('https://johnmulapi.com/api')
 .json())
-print(quote['quote'])
+print(quote)
 ```
 ☟
 ```json
@@ -44,3 +44,5 @@ Please do. Let me know how it goes.
 <p align="center">
 <img alt="John Mulaney's Head" src='./assets/mulaney_head.png' />
 </p>
+
+##### Shamelessly inspired by [kanye.rest](https://kanye.rest/)

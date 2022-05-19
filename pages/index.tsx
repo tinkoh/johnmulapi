@@ -102,7 +102,7 @@ const Home: NextPage = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ height: 0, visibility: "hidden" }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
         >
           <HowToUse />
         </motion.div>
@@ -126,6 +126,7 @@ const Home: NextPage = () => {
         alt="John Mulaney"
         mt="1em"
         mx="auto"
+        zIndex={2}
       />
 
       <Footer />
