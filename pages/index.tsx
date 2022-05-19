@@ -9,12 +9,12 @@ import { MdOutlineFormatListBulleted } from 'react-icons/md'
 import { SiTwitter } from 'react-icons/si'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import Toolbar from './components/Toolbar'
-import Header from './components/Header'
-import Quote from './components/Quote'
-import HowToUse from './components/HowToUse'
-import QuoteList from './components/QuoteList'
-import Footer from './components/Footer'
+import Toolbar from '../components/Toolbar'
+import Header from '../components/Header'
+import Quote from '../components/Quote'
+import HowToUse from '../components/HowToUse'
+import QuoteList from '../components/QuoteList'
+import Footer from '../components/Footer'
 
 import mulaneyImage from '../assets/mulaney.png'
 
