@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
 import { 
   Box, Center, Container, Image, HStack, IconButton, Tooltip 
 } from '@chakra-ui/react'
 import { HiQuestionMarkCircle, HiRefresh } from 'react-icons/hi'
 import { MdOutlineFormatListBulleted } from 'react-icons/md'
+import { SiTwitter } from 'react-icons/si'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import Toolbar from './components/Toolbar'
@@ -37,6 +37,10 @@ const Home: NextPage = () => {
       .then(data => setQuote(data.data))
   }
   useEffect(() => { getQuote() }, [])
+  const openTweet = () => { 
+    const param = encodeURI(quote) + "%0A" + encodeURI(`- John Mulaney (https://johnmulapi.com)`)
+    window.open(`https://twitter.com/intent/tweet?text=${param}`)
+  }
 
   return (
     <Box
@@ -78,6 +82,17 @@ const Home: NextPage = () => {
               icon={<MdOutlineFormatListBulleted />}
               onClick={toggleShowQuotes}
             />
+          </Tooltip>
+          <Tooltip label="Share On Twitter">
+          <IconButton
+            variant="ghost"
+            aria-label="Share On Twitter"
+            fontSize="xl"
+            borderRadius="50%"
+            isDisabled={!(quote.length > 0)}
+            icon={<SiTwitter />}
+            onClick={openTweet}
+          />
           </Tooltip>
           <Tooltip label="Refresh">
           <IconButton
