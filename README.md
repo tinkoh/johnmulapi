@@ -30,6 +30,14 @@ print(quote['quote'])
 {"data":"I don't look older, I just look worse."}
 ```
 
+### Parameters
+
+|name |type |description
+|--- |--- |---
+|quantity |number | Number of quotes to return
+|maxLength |number |Maximum length of quote(s) 
+|minLength |number |Minimum length of quote(s)
+
 ### Can I use this in a project?
 Please do. Let me know how it goes.
 

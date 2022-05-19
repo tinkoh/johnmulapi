@@ -102,6 +102,7 @@ const Home: NextPage = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ height: 0, visibility: "hidden" }}
+          transition={{ duration: 0.3 }}
         >
           <HowToUse />
         </motion.div>
