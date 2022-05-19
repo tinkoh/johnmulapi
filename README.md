@@ -27,7 +27,7 @@ print(quote['quote'])
 ```
 ☟
 ```json
-{"quote":"I don't look older, I just look worse."}
+{"data":"I don't look older, I just look worse."}
 ```
 
 ### Can I use this in a project?
