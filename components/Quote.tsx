@@ -9,7 +9,7 @@ const Quote = ({ quote }: { quote: string }) => {
             mb={2.5}
             borderRadius="0.25em"
             shadow="xl"
-            borderWidth={1}
+            borderWidth={2}
             w="100%"
         >
         {quote.length > 0 ? <>
@@ -32,7 +32,7 @@ const Quote = ({ quote }: { quote: string }) => {
         </Text>
         </> : 
         <Center>
-            <Spinner mx="auto" />
+            <Spinner mx="auto" color="facebook.400" />
         </Center>
         }
         </Container>

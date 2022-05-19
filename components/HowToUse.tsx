@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    Container, Heading, Tabs, Tab, TabList, TabPanels, TabPanel, Code, Text, IconButton, Tooltip, Table, Thead, Tbody, Tr, Th, Td, TableContainer
+    Container, Heading, Tabs, Tab, TabList, TabPanels, TabPanel, Code, Text, IconButton, Tooltip, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Divider
 } from '@chakra-ui/react'
 import { HiTerminal } from 'react-icons/hi'
 import { FaJsSquare, FaPython } from 'react-icons/fa'
@@ -74,6 +74,8 @@ print(quote)
           </TabPanels>
         </Tabs>
 
+        <Divider my="1em" />
+
         <Heading
           mt="1em"
           mb="0.5em"
@@ -122,6 +124,8 @@ print(quote)
             <Text>curl https://johnmulapi.com/api?quantity=3&maxLength=50</Text>
           </Code>
         </TableContainer>
+
+        <Divider my="1em" />
 
         <Heading
             my="1em"

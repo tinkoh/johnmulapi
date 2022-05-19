@@ -19,7 +19,7 @@ const QuoteList = () => {
                 mt="1em"
                 py="0.5em"
                 px="0.25em"
-                borderWidth={1}
+                borderWidth={2}
                 borderRadius="0.25em"
                 css={css`
                 &::-webkit-scrollbar {
