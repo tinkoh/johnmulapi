@@ -3,7 +3,7 @@
 # johnmulapi
 An API for John Mulaney quotes.  
   
-[api.johnmulapi.com](https://api.johnmulapi.com)
+[johnmulapi.com/api](https://johnmulapi.com/api)
 
 </div>
 
@@ -11,17 +11,17 @@ An API for John Mulaney quotes.
 ### How do I use this?
 
 ```shell
-$ curl api.johnmulapi.com
+$ curl https://johnmulapi.com/api
 ```
 ```javascript
-fetch('https://api.johnmulapi.com')
+fetch('https://johnmulapi.com/api')
    .then(res => res.json())
    .then(data => console.log(data);
 ```
 ```python
 import requests
 quote = (requests
-.get('https://api.johnmulapi.com')
+.get('https://johnmulapi.com/api')
 .json())
 print(quote['quote'])
 ```
@@ -34,5 +34,5 @@ print(quote['quote'])
 Please do. Let me know how it goes.
 
 <p align="center">
-<img alt="John Mulaney's Head" src='./client/assets/mulaney_head.png' />
+<img alt="John Mulaney's Head" src='./assets/mulaney_head.png' />
 </p>

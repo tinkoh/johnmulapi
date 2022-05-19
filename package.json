@@ -1,24 +1,33 @@
 {
   "name": "johnmulapi",
-  "version": "2.0.0",
-  "description": "An API for John Mulaney quotes.",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js"
+    "minify": "gulp",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tinkoh/johnmulapi.git"
-  },
-  "author": "Given Suman",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tinkoh/johnmulapi/issues"
-  },
-  "homepage": "https://github.com/tinkoh/johnmulapi#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-subdomain": "^1.0.5"
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^6",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-icons": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.32",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.3",
+    "del": "^6.1.0",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "typescript": "4.6.4"
   }
 }
