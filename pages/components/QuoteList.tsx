@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react'
 import { css } from '@emotion/react'
 
-import quotes from '../../quotes/quotes-min.js'
+import quotes from '../../quotes/quotes.min.json'
 
 const QuoteList = () => {
 

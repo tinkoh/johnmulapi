@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import allQuotes from '../../quotes/quotes-min.js'
+import allQuotes from '../../quotes/quotes.min.json'
 
 export default function handler(
   req: NextApiRequest,
