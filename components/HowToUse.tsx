@@ -119,7 +119,7 @@ print(quote)
             fontWeight={"semibold"}
           >
             <Text color="gray.500"># example usage</Text>
-            <Text>curl https://johnmulapi.com/api?quantity=2&maxLength=25</Text>
+            <Text>curl https://johnmulapi.com/api?quantity=3&maxLength=50</Text>
           </Code>
         </TableContainer>
 
