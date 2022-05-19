@@ -38,6 +38,11 @@ print(quote)
 |maxLength |number |Maximum length of quote(s) 
 |minLength |number |Minimum length of quote(s)
 
+```
+# example usage
+curl https://johnmulapi.com/api?quantity=3&maxLength=50
+```
+
 ### Can I use this in a project?
 Please do. Let me know how it goes.
 
