@@ -32,6 +32,7 @@ const Home: NextPage = () => {
   }
   const [ quote, setQuote ] = useState("")
   const getQuote = async () => {
+    setQuote("")
     await fetch('/api')
       .then(res => res.json())
       .then(data => setQuote(data.data))
