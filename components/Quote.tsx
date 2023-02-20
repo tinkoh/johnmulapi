@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Text, Spinner, Center } from "@chakra-ui/react"
+import { Container, Text, Spinner, Center, Alert, AlertIcon } from "@chakra-ui/react"
 import type { ContainerProps } from "@chakra-ui/react"
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -31,7 +31,13 @@ const Quote: React.FC<{
         return (
             <Wrapper {...props}>
                 <Center>
-                    <h1>Error</h1>
+                    <Alert 
+                        status="error"
+                        borderRadius={4}
+                    >
+                        <AlertIcon />
+                        Something went wrong. Try again later!
+                    </Alert>
                 </Center>
             </Wrapper>
         )
@@ -45,7 +51,7 @@ const Quote: React.FC<{
                         key={quote}
                         initial={{ x: -100 }}
                         animate={{ x: 0 }}
-                        exit={{ x: 1000, position: "absolute" }}
+                        exit={{ x: 1000, position: "absolute", opacity: 0 }}
                     >
                         <Text
                             fontSize="lg"
@@ -54,18 +60,18 @@ const Quote: React.FC<{
                         >
                             {quote}
                         </Text>
-                        <Text
-                            position="absolute"
-                            bottom={2}
-                            right={2}
-                            fontWeight="semibold"
-                            userSelect="none"
-                        >
-                        - John Mulaney
-                        </Text>
                     </motion.div> 
                 }
             </AnimatePresence>
+            <Text
+                position="absolute"
+                bottom={2}
+                right={2}
+                fontWeight="semibold"
+                userSelect="none"
+            >
+            - John Mulaney
+            </Text>
         </Wrapper>
     )
 }
@@ -80,7 +86,7 @@ const Wrapper: React.FC<ContainerProps> = (props) => {
             shadow="xl"
             borderWidth={2}
             w="100%"
-            overflowX="hidden"
+            overflow="hidden"
             {...props}
         >
             {props.children}
