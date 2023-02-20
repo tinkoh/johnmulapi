@@ -11,14 +11,17 @@ An API for John Mulaney quotes.
 ### How do I use this?
 
 ```shell
+# shell
 $ curl https://johnmulapi.com/api
 ```
 ```javascript
+// javascript
 fetch('https://johnmulapi.com/api')
    .then(res => res.json())
    .then(data => console.log(data);
 ```
 ```python
+# python
 import requests
 quote = (requests
 .get('https://johnmulapi.com/api')
@@ -38,7 +41,7 @@ print(quote)
 |maxLength |number |Maximum length of quote(s) 
 |minLength |number |Minimum length of quote(s)
 
-```
+```bash
 # example usage
 curl https://johnmulapi.com/api?quantity=3&maxLength=50
 ```
