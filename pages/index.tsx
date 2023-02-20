@@ -52,7 +52,6 @@ const Home: NextPage = () => {
       minH="100vh"
     >
       <Toolbar />
-
       <Container
         mx="auto"
         display="flex"
@@ -60,103 +59,92 @@ const Home: NextPage = () => {
         alignItems="center"
         justifyContent="center"
       >
-
-      <Header />
-
-      <Center>
-        <HStack my={2.5}>
-          <Tooltip label="How To Use">
-          <IconButton
-            isActive={showHowTo}
-            variant="ghost"
-            fontSize="xl"
-            borderRadius="50%"
-            aria-label="How To Use"
-            icon={<HiQuestionMarkCircle />}
-            onClick={toggleHowTo}
-          />
-          </Tooltip>
-          <Tooltip label="View Quotes">
+        <Header />
+        <Center>
+          <HStack my={2.5}>
+            <Tooltip label="How To Use">
             <IconButton
-              isActive={showQuotes}
+              isActive={showHowTo}
               variant="ghost"
               fontSize="xl"
               borderRadius="50%"
-              aria-label="View Quotes"
-              icon={<FaListUl />}
-              onClick={toggleShowQuotes}
+              aria-label="How To Use"
+              icon={<HiQuestionMarkCircle />}
+              onClick={toggleHowTo}
             />
-          </Tooltip>
-          <Tooltip label="Share On Twitter">
-          <IconButton
-            variant="ghost"
-            aria-label="Share On Twitter"
-            fontSize="xl"
-            borderRadius="50%"
-            isDisabled={!quote?.data}
-            icon={<FaTwitter />}
-            onClick={openTweet}
-          />
-          </Tooltip>
-          <Tooltip label="Refresh">
-          <IconButton
-            variant="ghost"
-            fontSize="xl"
-            borderRadius="50%"
-            aria-label="Refresh"
-            icon={<HiRefresh />}
-            onClick={handleRefetch}
-            as="button"
-          />
-          </Tooltip>
-        </HStack>
-      </Center>
-
-      <Quote 
-        quote={quote?.data} 
-        isLoading={isLoading}
-        isError={isError}
-      />
-
-      <AnimatePresence>
-
-      {showHowTo && 
-        <motion.div
-          key="howtouse"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ height: 0, visibility: "hidden" }}
-          transition={{ duration: 0.25 }}
-        >
-          <HowToUse />
-        </motion.div>
-      }
-
-      {showQuotes &&
-        <motion.div
-          key="quotes"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ height: 0, visibility: "hidden" }}
-        >
-          <QuoteList />
-        </motion.div>
-      }
-
-      </AnimatePresence>
-
-      <Image
-        src={mulaneyImage.src}
-        alt="John Mulaney"
-        mt="1em"
-        mx="auto"
-        zIndex={2}
-      />
-
-      <Footer />
-
+            </Tooltip>
+            <Tooltip label="View Quotes">
+              <IconButton
+                isActive={showQuotes}
+                variant="ghost"
+                fontSize="xl"
+                borderRadius="50%"
+                aria-label="View Quotes"
+                icon={<FaListUl />}
+                onClick={toggleShowQuotes}
+              />
+            </Tooltip>
+            <Tooltip label="Share On Twitter">
+            <IconButton
+              variant="ghost"
+              aria-label="Share On Twitter"
+              fontSize="xl"
+              borderRadius="50%"
+              isDisabled={!quote?.data}
+              icon={<FaTwitter />}
+              onClick={openTweet}
+            />
+            </Tooltip>
+            <Tooltip label="Refresh">
+            <IconButton
+              variant="ghost"
+              fontSize="xl"
+              borderRadius="50%"
+              aria-label="Refresh"
+              icon={<HiRefresh />}
+              onClick={handleRefetch}
+              as="button"
+            />
+            </Tooltip>
+          </HStack>
+        </Center>
+        <Quote 
+          quote={quote?.data} 
+          isLoading={isLoading}
+          isError={isError}
+        />
+        <AnimatePresence>
+        {showHowTo && 
+          <motion.div
+            key="howtouse"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ height: 0, visibility: "hidden" }}
+            transition={{ duration: 0.25 }}
+          >
+            <HowToUse />
+          </motion.div>
+        }
+        {showQuotes &&
+          <motion.div
+            key="quotes"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ height: 0, visibility: "hidden" }}
+          >
+            <QuoteList />
+          </motion.div>
+        }
+        </AnimatePresence>
+        <Image
+          src={mulaneyImage.src}
+          alt="John Mulaney"
+          mt="1em"
+          mx="auto"
+          zIndex={2}
+        />
+        <Footer />
       </Container>
-
     </Box>
   )
 }
