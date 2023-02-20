@@ -57,7 +57,7 @@ print(quote)
                       display="block"
                       whiteSpace="pre"
                       p="0.5em"
-                      pt={["2.5em", "0.5em"]}
+                      pr="3em"
                       borderRadius="0.25em"
                       fontWeight="semibold"
                       position="relative"
@@ -68,9 +68,8 @@ print(quote)
                         aria-label="Copy"
                         icon={<FaRegCopy />}
                         position="absolute"
-                        right="0" top="0"
+                        right="0" top="0.5em"
                         variant="link"
-                        py="0.5em"
                         onClick={() => copy(code)}
                       />
                       </Tooltip>
