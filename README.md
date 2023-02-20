@@ -24,8 +24,8 @@ fetch('https://johnmulapi.com/api')
 # python
 import requests
 quote = (requests
-.get('https://johnmulapi.com/api')
-.json())
+  .get('https://johnmulapi.com/api')
+  .json())
 print(quote)
 ```
 ☟
