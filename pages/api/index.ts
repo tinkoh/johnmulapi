@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import allQuotes from '../../quotes/quotes.min.json'
 
 export type ResType = {
-    data: string | string[]
+    data: string | string[] | null
 }
 
 export type ReqType = {
@@ -19,31 +19,46 @@ export default function handler(
         quantity, maxLength, minLength
     } = req.query as ReqType
 
-    const getQuote = () => {
+    const getQuote = (): ResType["data"] => {
         let quotes: string[] = allQuotes
 
         // Filter quotes by optional max/min length parameters
-        if (maxLength && Number(maxLength)) quotes = quotes.filter(quote => quote.length <= Number(maxLength))
-        if (minLength && Number(minLength)) quotes = quotes.filter(quote => quote.length >= Number(minLength))
+        if (maxLength && Number(maxLength)) {
+            quotes = quotes.filter(quote => quote.length <= Number(maxLength))
+        }
+        if (minLength && Number(minLength)) {
+            quotes = quotes.filter(quote => quote.length >= Number(minLength))
+        }
 
-        // Get array of random indices of quotes
-        // @ts-ignore
-        const indices = Array(quotes.length).fill().map((_, index) => index + 1)
-        indices.sort(() => Math.random() - 0.5)
+        // If there are no quotes in that range, return null
+        if (!(quotes.length > 0)) {
+            return null
+        }
 
         // If no quantity provided, use first random index
         if (!quantity || !Number(quantity)) {
-            if (!(quotes.length > 0 && indices.length > 0)) return ""
-            return quotes[indices[0]]
+            return quotes[Math.floor(Math.random() * quotes.length)]
         }
-        // Else get array of random indices of length quantity
-        const randIndices = indices.slice(0, Number(quantity))
-        // @ts-ignore
+
+        // Else loop over quantity to get that many unique indices
+        const randIndices: number[] = []
+        let i = 0
+        while (i < Number(quantity)) {
+            let randomIndex = Math.floor(Math.random() * quotes.length)
+
+            if (!randIndices.includes(randomIndex)) {
+                randIndices.push(randomIndex)
+                i++
+            }
+        }
+
         // Return array of quotes of those indices
-        return Array(Number(quantity)).fill()
-            .map((_, index) => quotes[randIndices[index]] && quotes[randIndices[index]])
+        return [...Array(Number(quantity))]
+            .map((_, i) => {
+                return quotes[randIndices[i]]
+            })
             // Filter out nulls
-            .filter(item => { if (item) return item })
+            .filter(quote => !!quote)
     }
 
     res.status(200).json({ 
