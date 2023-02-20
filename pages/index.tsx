@@ -4,8 +4,7 @@ import {
   Box, Center, Container, Image, HStack, IconButton, Tooltip 
 } from "@chakra-ui/react"
 import { HiQuestionMarkCircle, HiRefresh } from "react-icons/hi"
-import { MdOutlineFormatListBulleted } from "react-icons/md"
-import { SiTwitter } from "react-icons/si"
+import { FaListUl, FaTwitter } from "react-icons/fa"
 import { AnimatePresence, motion } from "framer-motion"
 import { useQuery } from "react-query"
 
@@ -35,9 +34,10 @@ const Home: NextPage = () => {
     data: string
   }>("Fetch Quote", async () => {
     return await fetch("/api")
-      .then(res => res.json())
+      .then(async res => await res.json())
   })
 
+  const handleRefetch = async () => await refetch()
 
   const openTweet = () => { 
     if (quote?.data) {
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
               fontSize="xl"
               borderRadius="50%"
               aria-label="View Quotes"
-              icon={<MdOutlineFormatListBulleted />}
+              icon={<FaListUl />}
               onClick={toggleShowQuotes}
             />
           </Tooltip>
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
             fontSize="xl"
             borderRadius="50%"
             isDisabled={!quote?.data}
-            icon={<SiTwitter />}
+            icon={<FaTwitter />}
             onClick={openTweet}
           />
           </Tooltip>
@@ -105,7 +105,8 @@ const Home: NextPage = () => {
             borderRadius="50%"
             aria-label="Refresh"
             icon={<HiRefresh />}
-            onClick={() => refetch}
+            onClick={handleRefetch}
+            as="button"
           />
           </Tooltip>
         </HStack>
