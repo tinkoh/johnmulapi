@@ -4,6 +4,7 @@ import {
 } from "@chakra-ui/react"
 import { HiTerminal } from "react-icons/hi"
 import { FaJsSquare, FaPython, FaRegCopy } from "react-icons/fa"
+import { horizontalScrollbar } from "../styles/scrollbar"
 
 const HowToUse = () => {
 
@@ -50,11 +51,13 @@ print(quote)
                 <TabPanel px={0} key={index}>
                   <Box
                     overflowX={["scroll", "hidden"]}
+                    css={horizontalScrollbar}
                   >
                     <Code
                       display="block"
                       whiteSpace="pre"
                       p="0.5em"
+                      pt={["2.5em", "0.5em"]}
                       borderRadius="0.25em"
                       fontWeight="semibold"
                       position="relative"
@@ -90,7 +93,8 @@ print(quote)
             Parameters
           </Heading>
           <TableContainer
-
+            css={horizontalScrollbar}
+            pb={1}
           >
             <Table>
               <Thead>
@@ -123,10 +127,11 @@ print(quote)
               minWidth="fit-content"
               mt="1em"
               p="0.5em"
+              pr={["2.5em", "2.5em", "0.5em"]}
               borderRadius="0.25em"
               display="block"
               whiteSpace="pre"
-              fontWeight={"semibold"}
+              fontWeight="semibold"
             >
               <Text color="gray.500">
                 # example usage

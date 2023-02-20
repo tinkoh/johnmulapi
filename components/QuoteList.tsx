@@ -4,6 +4,8 @@ import {
 } from '@chakra-ui/react'
 import { css } from '@emotion/react'
 
+import { verticalScrollbar } from '../styles/scrollbar'
+
 import quotes from '../quotes/quotes.min.json'
 
 const QuoteList = () => {
@@ -21,22 +23,7 @@ const QuoteList = () => {
                 px="0.25em"
                 borderWidth={2}
                 borderRadius="0.25em"
-                css={css`
-                &::-webkit-scrollbar {
-                    width: 3px;
-                }
-                &::-webkit-scrollbar-track {
-                    background-color: transparent;
-                    width: 10px;
-                }
-                &::-webkit-scrollbar-thumb {
-                    background-color: lightgrey;
-                    border-radius: 1px;
-                    height: 50px;
-                    outline: none;
-                    background-clip: padding-box;
-                }
-                `}
+                css={verticalScrollbar}
             >
                 {quotes.map((quote, index) => 
                 <Box 

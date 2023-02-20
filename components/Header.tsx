@@ -1,9 +1,9 @@
-import React from 'react'
-import { VStack, Heading, Text } from '@chakra-ui/react'
+import React from "react"
+import { VStack, Heading, Text } from "@chakra-ui/react"
 
 const Header = () => {
     return (
-        <VStack userSelect={"none"}>
+        <VStack userSelect="none">
             <Heading 
                 size="3xl"
                 userSelect="none"
