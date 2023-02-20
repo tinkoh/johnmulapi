@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react'
-import type { NextPage } from 'next'
-
+import { useState } from "react"
+import type { NextPage } from "next"
 import { 
   Box, Center, Container, Image, HStack, IconButton, Tooltip 
-} from '@chakra-ui/react'
-import { HiQuestionMarkCircle, HiRefresh } from 'react-icons/hi'
-import { MdOutlineFormatListBulleted } from 'react-icons/md'
-import { SiTwitter } from 'react-icons/si'
-import { AnimatePresence, motion } from 'framer-motion'
+} from "@chakra-ui/react"
+import { HiQuestionMarkCircle, HiRefresh } from "react-icons/hi"
+import { MdOutlineFormatListBulleted } from "react-icons/md"
+import { SiTwitter } from "react-icons/si"
+import { AnimatePresence, motion } from "framer-motion"
+import { useQuery } from "react-query"
 
-import Toolbar from '../components/Toolbar'
-import Header from '../components/Header'
-import Quote from '../components/Quote'
-import HowToUse from '../components/HowToUse'
-import QuoteList from '../components/QuoteList'
-import Footer from '../components/Footer'
+import Toolbar from "../components/Toolbar"
+import Header from "../components/Header"
+import Quote from "../components/Quote"
+import HowToUse from "../components/HowToUse"
+import QuoteList from "../components/QuoteList"
+import Footer from "../components/Footer"
 
-import mulaneyImage from '../assets/mulaney.png'
+import mulaneyImage from "../assets/mulaney.png"
 
 const Home: NextPage = () => {
 
@@ -30,17 +30,20 @@ const Home: NextPage = () => {
     setShowHowTo(false)
     setShowQuotes(state => !state)
   }
-  const [ quote, setQuote ] = useState("")
-  const getQuote = async () => {
-    setQuote("")
-    await fetch('/api')
+
+  const { data: quote, isLoading, isError, refetch } = useQuery<{
+    data: string
+  }>("Fetch Quote", async () => {
+    return await fetch("/api")
       .then(res => res.json())
-      .then(data => setQuote(data.data))
-  }
-  useEffect(() => { getQuote() }, [])
+  })
+
+
   const openTweet = () => { 
-    const param = encodeURI(quote) + "%0A" + encodeURI(`- John Mulaney (https://johnmulapi.com)`)
-    window.open(`https://twitter.com/intent/tweet?text=${param}`)
+    if (quote?.data) {
+      const param = encodeURI(quote?.data) + "%0A" + encodeURI(`- John Mulaney (https://johnmulapi.com)`)
+      window.open(`https://twitter.com/intent/tweet?text=${param}`)
+    }
   }
 
   return (
@@ -90,7 +93,7 @@ const Home: NextPage = () => {
             aria-label="Share On Twitter"
             fontSize="xl"
             borderRadius="50%"
-            isDisabled={!(quote.length > 0)}
+            isDisabled={!quote?.data}
             icon={<SiTwitter />}
             onClick={openTweet}
           />
@@ -102,13 +105,17 @@ const Home: NextPage = () => {
             borderRadius="50%"
             aria-label="Refresh"
             icon={<HiRefresh />}
-            onClick={getQuote}
+            onClick={() => refetch}
           />
           </Tooltip>
         </HStack>
       </Center>
 
-      <Quote quote={quote} />
+      <Quote 
+        quote={quote?.data} 
+        isLoading={isLoading}
+        isError={isError}
+      />
 
       <AnimatePresence>
 

@@ -1,13 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import allQuotes from '../../quotes/quotes.min.json'
 
+export type ResType = {
+    data: string | string[]
+}
+
+export type ReqType = {
+    quantity?: string,
+    maxLength?: string,
+    minLength?: string
+}
+
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<ResType>
 ) {
     const { 
         quantity, maxLength, minLength
-    } = req.query
+    } = req.query as ReqType
 
     const getQuote = () => {
         let quotes: string[] = allQuotes
