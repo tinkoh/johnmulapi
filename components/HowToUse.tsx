@@ -32,7 +32,15 @@ print(quote)
           toast({
             title: "Copied to clipboard!",
             isClosable: true,
-            duration: 3000
+            duration: 3000,
+          })
+        })
+        .catch(() => {
+          toast({
+            title: "Failed to copy to clipboard.",
+            isClosable: true,
+            duration: 3000,
+            status: "error"
           })
         })
     }
