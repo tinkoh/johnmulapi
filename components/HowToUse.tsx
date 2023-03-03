@@ -2,6 +2,7 @@ import React from "react"
 import {
     Container, Heading, Tabs, Tab, TabList, TabPanels, TabPanel, Code, Text, IconButton, Tooltip, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Divider, Box
 } from "@chakra-ui/react"
+import { useColorModeValue, useToast } from "@chakra-ui/react"
 import { HiTerminal } from "react-icons/hi"
 import { FaJsSquare, FaPython, FaRegCopy } from "react-icons/fa"
 import { horizontalScrollbar } from "../styles/scrollbar"
@@ -20,10 +21,21 @@ quote = (requests
   .json())
 print(quote)
 `
-    ]
+    ]    
+    
+    const copyButtonBackground = useColorModeValue("gray.200", "gray.600")
+    const toast = useToast()
 
-    const copy = async (text: string) => 
+    const copy = async (text: string) => {
       await navigator.clipboard.writeText(text)
+        .then(() => {
+          toast({
+            title: "Copied to clipboard!",
+            isClosable: true,
+            duration: 3000
+          })
+        })
+    }
 
     return (
         <Container 
@@ -56,7 +68,7 @@ print(quote)
                     <Code
                       display="block"
                       whiteSpace="pre"
-                      p="0.5em"
+                      p="1em"
                       pr="3em"
                       borderRadius="0.25em"
                       fontWeight="semibold"
@@ -68,8 +80,14 @@ print(quote)
                         aria-label="Copy"
                         icon={<FaRegCopy />}
                         position="absolute"
-                        right="0" top="0.5em"
+                        right="0" top="0"
+                        mt="0.25em" mr="0.25em"
                         variant="link"
+                        py={1}
+                        _focus={{
+                          boxShadow: "none",
+                          backgroundColor: copyButtonBackground
+                        }}
                         onClick={() => copy(code)}
                       />
                       </Tooltip>
@@ -125,7 +143,7 @@ print(quote)
               width="100%"
               minWidth="fit-content"
               mt="1em"
-              p="0.5em"
+              p="1em"
               pr={["2.5em", "2.5em", "0.5em"]}
               borderRadius="0.25em"
               display="block"
