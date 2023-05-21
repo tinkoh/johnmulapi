@@ -10,14 +10,14 @@ import { horizontalScrollbar } from "../styles/scrollbar"
 const HowToUse = () => {
 
     const codes = [
-`curl https://johnmulapi.com/api`,
-`fetch("https://johnmulapi.com/api")
+`curl https://johnmulapi.given.rocks/api`,
+`fetch("https://johnmulapi.given.rocks/api")
   .then(res => res.json())
   .then(data => console.log(data))
 `,
 `import requests
 quote = (requests
-  .get("https://johnmulapi.com/api")
+  .get("https://johnmulapi.given.rocks/api")
   .json())
 print(quote)
 `
@@ -162,7 +162,7 @@ print(quote)
                 # example usage
               </Text>
               <Text>
-                curl https://johnmulapi.com/api?quantity=3&maxLength=50
+                curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50
               </Text>
             </Code>
           </TableContainer>
