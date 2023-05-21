@@ -1,7 +1,7 @@
 import { useState } from "react"
 import type { NextPage } from "next"
 import { 
-  Box, Center, Container, Image, HStack, IconButton, Tooltip 
+  Box, Center, Container, HStack, IconButton, Tooltip 
 } from "@chakra-ui/react"
 import { HiQuestionMarkCircle, HiRefresh } from "react-icons/hi"
 import { FaListUl, FaTwitter } from "react-icons/fa"
@@ -13,9 +13,8 @@ import Header from "../components/Header"
 import Quote from "../components/Quote"
 import HowToUse from "../components/HowToUse"
 import QuoteList from "../components/QuoteList"
+import Image from "../components/Image"
 import Footer from "../components/Footer"
-
-import mulaneyImage from "../assets/mulaney.png"
 
 const Home: NextPage = () => {
 
@@ -136,13 +135,7 @@ const Home: NextPage = () => {
           </motion.div>
         }
         </AnimatePresence>
-        <Image
-          src={mulaneyImage.src}
-          alt="John Mulaney"
-          mt="1em"
-          mx="auto"
-          zIndex={2}
-        />
+        <Image />
         <Footer />
       </Container>
     </Box>
