@@ -34,7 +34,7 @@ const Toolbar = () => {
             </Tooltip>
             <Tooltip
                 label="Github"
-                placement="auto"
+                placement="bottom"
             >
                 <IconButton
                     as="a"
