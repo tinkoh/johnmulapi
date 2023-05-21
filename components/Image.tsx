@@ -12,14 +12,19 @@ const Image_ = () => {
 
     const imageRef = useRef<HTMLImageElement | null>(null)
     const bounds = imageRef.current?.getBoundingClientRect()
-    const CONSTRAINT = 100
+    const CONSTRAINT = 150
 
     useEffect(() => {
         const updateCoords = (e: MouseEvent) => {
             if (bounds) {
+
+                const x = (e.clientY - bounds.y - (bounds.height/2))/CONSTRAINT
+                const y = (e.clientX - bounds.x - (bounds.x/2))/CONSTRAINT
+                const LIMIT = 2
+
                 setMovement({
-                    x: -(e.clientY - bounds!.y - (bounds!.height/2))/CONSTRAINT,
-                    y: -(e.clientX - bounds!.x - (bounds!.height/2))/CONSTRAINT
+                    x: x > 0 ? Math.min(x,LIMIT) : Math.max(x, -LIMIT),
+                    y: y > 0 ? Math.min(y,LIMIT) : Math.max(y, -LIMIT)
                 })
             }
 
