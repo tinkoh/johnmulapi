@@ -84,20 +84,20 @@ print(quote)
                       minWidth="fit-content"
                     >
                       <Tooltip label="Copy">
-                      <IconButton 
-                        aria-label="Copy"
-                        icon={<FaRegCopy />}
-                        position="absolute"
-                        right="0" top="0"
-                        mt="0.25em" mr="0.25em"
-                        variant="link"
-                        py={1}
-                        _focus={{
-                          boxShadow: "none",
-                          backgroundColor: copyButtonBackground
-                        }}
-                        onClick={() => copy(code)}
-                      />
+                        <IconButton 
+                          aria-label="Copy"
+                          icon={<FaRegCopy />}
+                          position="absolute"
+                          right="0" top="0"
+                          mt="0.25em" mr="0.25em"
+                          variant="ghost"
+                          py={1}
+                          _focus={{
+                            boxShadow: "none",
+                            backgroundColor: copyButtonBackground
+                          }}
+                          onClick={() => copy(code)}
+                        />
                       </Tooltip>
                       <Text>
                         {code}
@@ -156,8 +156,25 @@ print(quote)
               borderRadius="0.25em"
               display="block"
               whiteSpace="pre"
+              position="relative"
               fontWeight="semibold"
             >
+              <Tooltip label="Copy">
+                <IconButton 
+                  aria-label="Copy"
+                  icon={<FaRegCopy />}
+                  position="absolute"
+                  right="0" top="0"
+                  mt="0.25em" mr="0.25em"
+                  variant="ghost"
+                  py={1}
+                  _focus={{
+                    boxShadow: "none",
+                    backgroundColor: copyButtonBackground
+                  }}
+                  onClick={() => copy(code)}
+                />
+              </Tooltip>
               <Text color="gray.500">
                 # example usage
               </Text>
