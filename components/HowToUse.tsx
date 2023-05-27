@@ -172,7 +172,7 @@ print(quote)
                     boxShadow: "none",
                     backgroundColor: copyButtonBackground
                   }}
-                  onClick={() => copy(code)}
+                  onClick={() => copy('curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50')}
                 />
               </Tooltip>
               <Text color="gray.500">
