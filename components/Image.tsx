@@ -41,7 +41,9 @@ const Image_ = () => {
             mt="1em"
             mx="auto"
             zIndex={2}
-            transform={`perspective(100px) rotateX(${movement.x}deg) rotateY(${movement.y}deg)`}
+            style={{
+                transform: `perspective(100px) rotateX(${movement.x}deg) rotateY(${movement.y}deg)`
+            }}
         />
     )
 }
