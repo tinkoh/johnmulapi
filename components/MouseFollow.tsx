@@ -1,5 +1,5 @@
 import { Box, keyframes, useColorModeValue } from '@chakra-ui/react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const MouseFollow = () => {
 
@@ -33,6 +33,19 @@ const MouseFollow = () => {
         "linear-gradient(90deg, rgba(116,115,128,1) 0%, rgba(64,101,121,1) 35%, rgba(72,41,179,1) 100%)" 
     )
 
+    const intervalRef = useRef<NodeJS.Timer | null>(null)
+    const [ blur, setBlur ] = useState(500)
+    const randomizeBlur = () => {
+        setBlur(Math.random() * (1000 - 500) + 500)
+    }
+    useEffect(() => {
+        intervalRef.current = setInterval(randomizeBlur, 1000)
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current)
+        }
+    }, [])
+
+
     return (
         <Box 
             h={SIZE}
@@ -43,10 +56,11 @@ const MouseFollow = () => {
             animation={animation}
             style={{
                 top: coords.y,
-                left: coords.x
+                left: coords.x,
+                filter: `blur(${blur}px)`
             }}
             zIndex={-100}
-            filter="blur(500px)"
+            transition="filter 1000ms"
         />
     )
 }
