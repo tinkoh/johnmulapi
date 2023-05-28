@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Text, Spinner, Center, Alert, AlertIcon } from "@chakra-ui/react"
+import { Container, Text, Spinner, Center, Alert, AlertIcon, useColorModeValue } from "@chakra-ui/react"
 import type { ContainerProps } from "@chakra-ui/react"
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -14,9 +14,11 @@ const Quote: React.FC<{
     ...props 
 }) => {
 
+    const bgColor = useColorModeValue("Background", "gray.900")
+
     if (isLoading) {
         return (
-            <Wrapper {...props}>
+            <Wrapper bgColor={bgColor} {...props}>
                 <Center>
                     <Spinner 
                         mx="auto" 
@@ -29,7 +31,7 @@ const Quote: React.FC<{
 
     if (isError) {
         return (
-            <Wrapper {...props}>
+            <Wrapper bgColor={bgColor} {...props}>
                 <Center>
                     <Alert 
                         status="error"
@@ -44,7 +46,7 @@ const Quote: React.FC<{
     }
 
     return (
-        <Wrapper {...props}>
+        <Wrapper bgColor={bgColor} {...props}>
             <AnimatePresence>
                 {quote  &&
                     <motion.div

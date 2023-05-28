@@ -15,6 +15,7 @@ import HowToUse from "../components/HowToUse"
 import QuoteList from "../components/QuoteList"
 import Image from "../components/Image"
 import Footer from "../components/Footer"
+import MouseFollow from "../components/MouseFollow"
 
 const Home: NextPage = () => {
 
@@ -138,6 +139,7 @@ const Home: NextPage = () => {
         <Image />
         <Footer />
       </Container>
+      <MouseFollow />
     </Box>
   )
 }
