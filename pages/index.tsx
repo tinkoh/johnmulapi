@@ -47,6 +47,7 @@ const Home: NextPage = () => {
   }
 
   return (
+    <>
     <Box
       minW="100%"
       minH="100vh"
@@ -136,11 +137,23 @@ const Home: NextPage = () => {
           </motion.div>
         }
         </AnimatePresence>
+        {/* eslint-disable-next-line */}
         <Image />
         <Footer />
       </Container>
+    </Box>
+    <Box
+      h="100%"
+      w="100%"
+      overflow="hidden"
+      position="absolute"
+      top={0}
+      left={0}
+      zIndex={-10}
+    >
       <MouseFollow />
     </Box>
+    </>
   )
 }
 
