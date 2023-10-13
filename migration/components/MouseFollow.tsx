@@ -41,7 +41,7 @@ const MouseFollow = () => {
     useEffect(() => {
         intervalRef.current = setInterval(randomizeBlur, 1000)
         return () => {
-            if (intervalRef.current) clearInterval(intervalRef.current)
+            if (intervalRef.current) clearInterval(intervalRef.current as NodeJS.Timeout)
         }
     }, [])
 

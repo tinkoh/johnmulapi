@@ -136,6 +136,7 @@ const Home: NextPage = () => {
           </motion.div>
         }
         </AnimatePresence>
+        {/* eslint-disable-next-line */}
         <Image />
         <Footer />
       </Container>
