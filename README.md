@@ -1,40 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# johnmulapi
+An API for John Mulaney quotes.  
+  
+[johnmulapi.given.rocks/api](https://johnmulapi.given.rocks/api)
 
-First, run the development server:
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+### How do I use this?
+
+```shell
+# shell
+$ curl https://johnmulapi.given.rocks/api
+```
+```javascript
+// javascript
+fetch('https://johnmulapi.given.rocks/api')
+   .then(res => res.json())
+   .then(data => console.log(data);
+```
+```python
+# python
+import requests
+quote = (requests
+  .get('https://johnmulapi.given.rocks/api')
+  .json())
+print(quote)
+```
+☟
+```json
+{"data":"I don't look older, I just look worse."}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Parameters
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+|name |type |description
+|--- |--- |---
+|quantity |number | Number of quotes to return
+|maxLength |number |Maximum length of quote(s) 
+|minLength |number |Minimum length of quote(s)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+# example usage
+curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Can I use this in a project?
+Please do. Let me know how it goes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p align="center">
+<img alt="John Mulaney's Head" src='./assets/mulaney_head.png' />
+</p>
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##### Shamelessly inspired by [kanye.rest](https://kanye.rest/)
