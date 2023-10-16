@@ -1,1 +1,0 @@
-fix overflow with mousefollow
