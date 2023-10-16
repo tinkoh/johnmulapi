@@ -1,13 +1,13 @@
-const gulp = require('gulp')
-const del = require('del')
-const minify = require('gulp-json-minify')
-const rename = require('gulp-rename')
+import gulp from 'gulp'
+import { deleteAsync } from 'del'
+import minify from 'gulp-json-minify'
+import rename from 'gulp-rename'
 
-gulp.task('clean', function () {
-  return del(['quotes/quotes.min.json'])
+gulp.task('clean', async function () {
+  return await deleteAsync(['quotes/quotes.min.json'])
 })
 
-gulp.task('minify', function() {
+gulp.task('minify', async function() {
   return gulp.src(['quotes/quotes.json'])
     .pipe(minify())
     .pipe(rename({ suffix: '.min' }))
@@ -15,5 +15,3 @@ gulp.task('minify', function() {
 })
 
 gulp.task('default', gulp.series(['clean', 'minify']))
-
-module.exports = gulp;
