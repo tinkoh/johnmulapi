@@ -18,7 +18,7 @@ const Quote: React.FC<{
 
     if (isLoading) {
         return (
-            <Wrapper bgColor={bgColor} {...props}>
+            <Wrapper {...props}>
                 <Center>
                     <Spinner 
                         mx="auto" 
@@ -31,7 +31,7 @@ const Quote: React.FC<{
 
     if (isError) {
         return (
-            <Wrapper bgColor={bgColor} {...props}>
+            <Wrapper {...props}>
                 <Center>
                     <Alert 
                         status="error"
@@ -46,7 +46,7 @@ const Quote: React.FC<{
     }
 
     return (
-        <Wrapper bgColor={bgColor} {...props}>
+        <Wrapper {...props}>
             <AnimatePresence>
                 {quote  &&
                     <motion.div
@@ -89,6 +89,7 @@ const Wrapper: React.FC<ContainerProps> = (props) => {
             borderWidth={2}
             w="100%"
             overflow="hidden"
+            bgColor="Background"
             {...props}
         >
             {props.children}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import type { NextPage } from "next"
 import { 
   Box, Center, Container, HStack, IconButton, Tooltip 
@@ -30,11 +30,13 @@ const Home: NextPage = () => {
     setShowQuotes(state => !state)
   }
 
-  const { data: quote, isLoading, isError, refetch } = useQuery<{
+  const { data: quote, isLoading, isFetching, isError, refetch } = useQuery<{
     data: string
   }>("Fetch Quote", async () => {
     return await fetch("/api")
       .then(async res => await res.json())
+  }, {
+    refetchOnWindowFocus: false
   })
 
   const handleRefetch = async () => await refetch()
@@ -45,6 +47,10 @@ const Home: NextPage = () => {
       window.open(`https://twitter.com/intent/tweet?text=${param}`)
     }
   }
+
+  useEffect(() => {
+    console.log(isLoading)
+  }, [isLoading])
 
   return (
     <>
@@ -111,7 +117,7 @@ const Home: NextPage = () => {
         </Center>
         <Quote 
           quote={quote?.data} 
-          isLoading={isLoading}
+          isLoading={isLoading || isFetching}
           isError={isError}
         />
         <AnimatePresence>
