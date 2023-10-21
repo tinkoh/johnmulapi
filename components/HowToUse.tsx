@@ -10,14 +10,14 @@ import { horizontalScrollbar } from "../styles/scrollbar"
 const HowToUse = () => {
 
     const codes = [
-`curl https://johnmulapi.given.rocks/api`,
-`fetch("https://johnmulapi.given.rocks/api")
+`curl https://johnmulapi.givensuman.com/api`,
+`fetch("https://johnmulapi.givensuman.com/api")
   .then(res => res.json())
   .then(data => console.log(data))
 `,
 `import requests
 quote = (requests
-  .get("https://johnmulapi.given.rocks/api")
+  .get("https://johnmulapi.givensuman.com/api")
   .json())
 print(quote)
 `
@@ -172,14 +172,14 @@ print(quote)
                     boxShadow: "none",
                     backgroundColor: copyButtonBackground
                   }}
-                  onClick={() => copy('curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50')}
+                  onClick={() => copy('curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50')}
                 />
               </Tooltip>
               <Text color="gray.500">
                 # example usage
               </Text>
               <Text>
-                curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50
+                curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50
               </Text>
             </Code>
           </TableContainer>

@@ -3,7 +3,7 @@
 # johnmulapi
 An API for John Mulaney quotes.  
   
-[johnmulapi.given.rocks/api](https://johnmulapi.given.rocks/api)
+[johnmulapi.givensuman.com/api](https://johnmulapi.givensuman.com/api)
 
 </div>
 
@@ -12,11 +12,11 @@ An API for John Mulaney quotes.
 
 ```shell
 # shell
-$ curl https://johnmulapi.given.rocks/api
+$ curl https://johnmulapi.givensuman.com/api
 ```
 ```javascript
 // javascript
-fetch('https://johnmulapi.given.rocks/api')
+fetch('https://johnmulapi.givensuman.com/api')
    .then(res => res.json())
    .then(data => console.log(data);
 ```
@@ -24,7 +24,7 @@ fetch('https://johnmulapi.given.rocks/api')
 # python
 import requests
 quote = (requests
-  .get('https://johnmulapi.given.rocks/api')
+  .get('https://johnmulapi.givensuman.com/api')
   .json())
 print(quote)
 ```
@@ -43,7 +43,7 @@ print(quote)
 
 ```bash
 # example usage
-curl https://johnmulapi.given.rocks/api?quantity=3&maxLength=50
+curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50
 ```
 
 ### Can I use this in a project?
