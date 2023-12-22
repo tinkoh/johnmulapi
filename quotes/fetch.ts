@@ -57,7 +57,7 @@ export default function ({
       status: 200,
       message: null,
     };
-  } catch ({ message }) {
+  } catch ({ message = null }: any) {
     return {
       data,
       status: 500,
