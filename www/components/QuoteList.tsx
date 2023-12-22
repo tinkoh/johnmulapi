@@ -2,11 +2,8 @@ import React from 'react'
 import { 
     Container, Heading, List, ListItem, Box, useColorModeValue
 } from '@chakra-ui/react'
-import { css } from '@emotion/react'
 
-import { verticalScrollbar } from '../styles/scrollbar'
-
-import quotes from '../quotes/quotes.min.json'
+import quotes from "../../quotes/quotes.min.json"
 
 const QuoteList = () => {
 
@@ -23,7 +20,6 @@ const QuoteList = () => {
                 px="0.25em"
                 borderWidth={2}
                 borderRadius="0.25em"
-                css={verticalScrollbar}
             >
                 {quotes.map((quote, index) => 
                 <Box 

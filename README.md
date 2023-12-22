@@ -1,52 +1,62 @@
 <div align="center">
 
 # johnmulapi
-An API for John Mulaney quotes.  
-  
-[johnmulapi.givensuman.com/api](https://johnmulapi.givensuman.com/api)
+
+An API for John Mulaney quotes.
+
+[johnmulapi.givensuman.com](https://johnmulapi.givensuman.com)
+
+[api.johnmulapi.givensuman.com](https://api.johnmulapi.givensuman.com)
 
 </div>
-
 
 ### How do I use this?
 
 ```shell
 # shell
-$ curl https://johnmulapi.givensuman.com/api
+$ curl https://api.johnmulapi.givensuman.com
 ```
+
 ```javascript
 // javascript
-fetch('https://johnmulapi.givensuman.com/api')
+fetch('https://api.johnmulapi.givensuman.com')
    .then(res => res.json())
    .then(data => console.log(data);
 ```
+
 ```python
 # python
 import requests
 quote = (requests
-  .get('https://johnmulapi.givensuman.com/api')
+  .get('https://api.johnmulapi.givensuman.com')
   .json())
 print(quote)
 ```
+
 ☟
+
 ```json
-{"data":"I don't look older, I just look worse."}
+{
+  "data": "I don't look older, I just look worse.",
+  "status": 200,
+  "message": null
+}
 ```
 
 ### Parameters
 
-|name |type |description
-|--- |--- |---
-|quantity |number | Number of quotes to return
-|maxLength |number |Maximum length of quote(s) 
-|minLength |number |Minimum length of quote(s)
+| name     | type    | default | description                                              |
+| -------- | ------- | ------- | -------------------------------------------------------- |
+| quantity | number  | 1       | Number of quotes to return                               |
+| unique   | boolean | false   | Whether the returned quotes (if multiple) must be unique |
 
-```bash
+```
 # example usage
-curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50
+curl https://johnmulapi.givensuman.com/api?quantity=5&unique=true
 ```
 
 ### Can I use this in a project?
+
 Please do. Let me know how it goes.
 
 <p align="center">

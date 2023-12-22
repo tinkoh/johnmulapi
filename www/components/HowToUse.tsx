@@ -5,7 +5,6 @@ import {
 import { useColorModeValue, useToast } from "@chakra-ui/react"
 import { HiTerminal } from "react-icons/hi"
 import { FaJsSquare, FaPython, FaRegCopy } from "react-icons/fa"
-import { horizontalScrollbar } from "../styles/scrollbar"
 
 const HowToUse = () => {
 
@@ -71,7 +70,6 @@ print(quote)
                 <TabPanel px={0} key={index}>
                   <Box
                     overflowX={["scroll", "hidden"]}
-                    css={horizontalScrollbar}
                   >
                     <Code
                       display="block"
@@ -118,7 +116,6 @@ print(quote)
             Parameters
           </Heading>
           <TableContainer
-            css={horizontalScrollbar}
             pb={1}
           >
             <Table>

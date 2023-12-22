@@ -7,8 +7,8 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import theme from '../styles/theme'
 import '../styles/globals.css'
 
-import favicon from '../assets/mulaney.ico'
-import metaImage from '../assets/mulaney.png'
+import favicon from "../../assets/mulaney.ico"
+import metaImage from "../../assets/mulaney.png"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import fetch, { Response } from "../../../quotes/fetch";
+import { fetch, Response } from "../../../server/routes";
 
 export default function handler(
-  req: NextApiRequest,
+  _req: NextApiRequest,
   res: NextApiResponse<Response>
 ) {
   const api_response = fetch();
