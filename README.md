@@ -33,7 +33,7 @@ quote = (requests
 print(quote)
 ```
 
-☟
+👇
 
 ```json
 {
