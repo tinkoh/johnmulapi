@@ -16,7 +16,9 @@ export function fetch({
   unique = false,
 }: Request = {}): Response {
   const data: string[] = [];
-  const quotes: string[] = _quotes;
+  const quotes: string[] = [..._quotes];
+
+  console.log(quotes.length);
 
   try {
     if (quantity < 0)
@@ -35,10 +37,10 @@ export function fetch({
         };
 
       while (data.length < quantity) {
-        const [quote] = quotes.splice(
-          Math.floor(Math.random() * quotes.length)
-        );
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quote = quotes[randomIndex];
         data.push(quote);
+        quotes.splice(randomIndex, 1);
       }
 
       return {
