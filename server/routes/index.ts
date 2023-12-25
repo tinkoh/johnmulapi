@@ -66,7 +66,11 @@ export function fetch({
   }
 }
 
-export default eventHandler((event) => {
+interface H3Event {
+  path: string;
+}
+
+export default function eventHandler(event: H3Event) {
   const query = new $URL(event.path).query;
   return fetch({ ...query });
-});
+}
