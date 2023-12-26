@@ -12,7 +12,7 @@ const Image_ = () => {
     const bounds = imageRef.current?.getBoundingClientRect()
 
     const CONSTRAINT = 150
-    const LIMIT = 2
+    const LIMIT = 2.5
 
     let bounding = mouseLocation
     if (bounds) {

@@ -22,7 +22,7 @@ function App() {
       <Quote />
       <Image />
       <Footer />
-      {/* <MouseFollow /> */}
+      <MouseFollow />
     </Wrapper>
     </MulaneyQuoteProvider>
     </ChakraProvider>

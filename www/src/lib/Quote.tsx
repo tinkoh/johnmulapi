@@ -1,8 +1,9 @@
 import React from "react"
-import { Container as Container_, Text, Spinner, Center, Alert, AlertIcon, useColorModeValue } from "@chakra-ui/react"
+import { Container as Container_, Text, Spinner, Center, useColorModeValue } from "@chakra-ui/react"
 import type { ContainerProps } from "@chakra-ui/react"
 import { AnimatePresence, motion } from "framer-motion"
 
+import CopyButton from "./components/CopyButton"
 import useMulaneyQuote from "./hooks/useMulaneyQuote"
 
 const Quote: React.FC<ContainerProps> = ({ ...props }) => {
@@ -21,6 +22,7 @@ const Quote: React.FC<ContainerProps> = ({ ...props }) => {
 
     return (
         <Container {...props}>
+            <CopyButton text={quote} />
             <AnimatePresence>
                     <motion.div
                         initial={{ x: -100 }}
