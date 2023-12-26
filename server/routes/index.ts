@@ -115,7 +115,7 @@ function parseQuery(query: QueryObject) {
 export default function eventHandler(event: { path: string }) {
   const query = new $URL(event.path).query;
   const parsedQuery = parseQuery(query);
-  console.log(parsedQuery);
+  
   return fetch({ ...parsedQuery });
 }
 
