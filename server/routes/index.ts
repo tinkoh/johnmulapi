@@ -1,9 +1,13 @@
-import { $URL } from "ufo";
+import { $URL, type QueryObject } from "ufo";
+import Filter from "bad-words";
 import _quotes from "../../quotes/quotes.min.json";
 
 export interface Request {
   quantity?: number;
   unique?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  censor?: boolean;
 }
 
 export interface Response {
@@ -11,14 +15,25 @@ export interface Response {
   status: 200 | 400 | 500;
   message: string | null;
 }
+
+/**
+ * Fetches a list of quotes based on the provided parameters.
+ * @param {Request} request - The request parameters.
+ * @returns {Response} The response containing the quotes and status.
+ */
 export function fetch({
   quantity = 1,
   unique = false,
+  minLength = undefined,
+  maxLength = undefined,
+  censor = false,
 }: Request = {}): Response {
-  const data: string[] = [];
-  const quotes: string[] = [..._quotes];
+  let data: string[] = [];
+  let quotes: string[] = [..._quotes];
+  const filter = new Filter();
 
-  console.log(quotes.length);
+  if (censor === true)
+    console.log("Should be censoring", filter.clean("eat ass suck a dick"));
 
   try {
     if (quantity < 0)
@@ -28,7 +43,12 @@ export function fetch({
         message: "You requested a negative amount of quotes my dude.",
       };
 
-    if (unique) {
+    if (minLength)
+      quotes = [...quotes.filter((quote) => quote.length >= minLength)];
+    if (maxLength)
+      quotes = [...quotes.filter((quote) => quote.length <= maxLength)];
+
+    if (unique === true) {
       if (quantity > quotes.length)
         return {
           data,
@@ -43,22 +63,33 @@ export function fetch({
         quotes.splice(randomIndex, 1);
       }
 
+      if (censor === true) data = data.map((quote) => filter.clean(quote));
+
+      return {
+        data,
+        status: 200,
+        message: null,
+      };
+    } else {
+      if (quotes.length === 0)
+        return {
+          data,
+          status: 400,
+          message: "I ran out of quotes within the restrictions you set.",
+        };
+
+      while (data.length < quantity) {
+        data.push(quotes[Math.floor(Math.random() * quotes.length)]);
+      }
+
+      if (censor === true) data = data.map((quote) => filter.clean(quote));
+
       return {
         data,
         status: 200,
         message: null,
       };
     }
-
-    while (data.length < quantity) {
-      data.push(quotes[Math.floor(Math.random() * quotes.length)]);
-    }
-
-    return {
-      data,
-      status: 200,
-      message: null,
-    };
   } catch ({ message = null }: any) {
     return {
       data,
@@ -68,11 +99,28 @@ export function fetch({
   }
 }
 
-interface H3Event {
-  path: string;
+function parseQuery(query: QueryObject) {
+  const parsed: QueryObject = {};
+
+  for (const key in query) {
+    if (query[key] === "true") {
+      parsed[key] = true;
+    } else if (query[key] === "false") {
+      parsed[key] = false;
+    } else if (!isNaN(Number(query[key]))) {
+      parsed[key] = Number(query[key]);
+    } else {
+      parsed[key] = query[key];
+    }
+  }
+  return parsed;
 }
 
-export default function eventHandler(event: H3Event) {
+export default function eventHandler(event: { path: string }) {
   const query = new $URL(event.path).query;
-  return fetch({ ...query });
+  const parsedQuery = parseQuery(query);
+  console.log(parsedQuery);
+  return fetch({ ...parsedQuery });
 }
+
+export const __Filter__ = Filter;

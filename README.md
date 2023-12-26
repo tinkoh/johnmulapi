@@ -45,14 +45,17 @@ print(quote)
 
 ### Parameters
 
-| name     | type    | default | description                                              |
-| -------- | ------- | ------- | -------------------------------------------------------- |
-| quantity | number  | 1       | Number of quotes to return                               |
-| unique   | boolean | false   | Whether the returned quotes (if multiple) must be unique |
+| name      | type    | default   | description                                              |
+| --------- | ------- | --------- | -------------------------------------------------------- |
+| quantity  | number  | 1         | Number of quotes to return                               |
+| minLength | number  | undefined | Minimum length of the quotes to return                   |
+| maxLength | number  | undefined | Maximum length of the quotes to return                   |
+| unique    | boolean | false     | Whether the returned quotes (if multiple) must be unique |
+| censor    | boolean | false     | Whether to censor explicit words out of the quotes       |
 
 ```
 # example usage
-curl https://johnmulapi.givensuman.com/api?quantity=5&unique=true
+curl https://api.johnmulapi.givensuman.com/?quantity=5&unique=true&maxLength=75
 ```
 
 ### Can I use this in a project?
