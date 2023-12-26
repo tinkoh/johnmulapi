@@ -28,10 +28,10 @@ export function fetch({
   maxLength = undefined,
   censor = false,
 }: Request = {}): Response {
-  let data: string[] = [];
+  const data: string[] = [];
   let quotes: string[] = [..._quotes];
   const filter = new Filter();
-  
+
   try {
     if (quantity < 0)
       return {
@@ -40,10 +40,20 @@ export function fetch({
         message: "You requested a negative amount of quotes my dude.",
       };
 
+    if (censor === true)
+      quotes = [...quotes.map((quote) => filter.clean(quote))];
+
     if (minLength)
       quotes = [...quotes.filter((quote) => quote.length >= minLength)];
     if (maxLength)
       quotes = [...quotes.filter((quote) => quote.length <= maxLength)];
+
+    if (quotes.length === 0)
+      return {
+        data,
+        status: 400,
+        message: "I ran out of quotes within the restrictions you set.",
+      };
 
     if (unique === true) {
       if (quantity > quotes.length)
@@ -60,26 +70,15 @@ export function fetch({
         quotes.splice(randomIndex, 1);
       }
 
-      if (censor === true) data = data.map((quote) => filter.clean(quote));
-
       return {
         data,
         status: 200,
         message: null,
       };
     } else {
-      if (quotes.length === 0)
-        return {
-          data,
-          status: 400,
-          message: "I ran out of quotes within the restrictions you set.",
-        };
-
       while (data.length < quantity) {
         data.push(quotes[Math.floor(Math.random() * quotes.length)]);
       }
-
-      if (censor === true) data = data.map((quote) => filter.clean(quote));
 
       return {
         data,
