@@ -31,10 +31,7 @@ export function fetch({
   let data: string[] = [];
   let quotes: string[] = [..._quotes];
   const filter = new Filter();
-
-  if (censor === true)
-    console.log("Should be censoring", filter.clean("eat ass suck a dick"));
-
+  
   try {
     if (quantity < 0)
       return {
