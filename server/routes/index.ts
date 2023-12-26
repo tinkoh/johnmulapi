@@ -1,6 +1,6 @@
 import { $URL, type QueryObject } from "ufo";
 import Filter from "bad-words";
-import _quotes from "../../quotes/quotes.min.json";
+import quotes_ from "../../quotes/quotes.min.json";
 
 export interface Request {
   quantity?: number;
@@ -29,7 +29,7 @@ export function fetch({
   censor = false,
 }: Request = {}): Response {
   const data: string[] = [];
-  let quotes: string[] = [..._quotes];
+  let quotes: string[] = [...quotes_];
   const filter = new Filter();
 
   try {
