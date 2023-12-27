@@ -1,7 +1,11 @@
 import IconButton, { type Props as Props_ } from "./IconButton";
 import useCopyToClipboard from "../hooks/useCopyToClipboard";
+import useMulaneyQuote from "../hooks/useMulaneyQuote";
 
-import { Copy } from "@emotion-icons/fa-solid/Copy"
+import { Copy } from "@emotion-icons/boxicons-solid/Copy"
+import { CheckLg } from "@emotion-icons/bootstrap/CheckLg"
+import { useColorModeValue, useToast } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 interface Props extends Omit<Props_, "label" | "aria-label"> {
     text: string
@@ -13,16 +17,43 @@ const CopyButton = ({
 }: Props) => {
 
     const [ _clipboard, setClipboard ] = useCopyToClipboard()
+    const [ icon, setIcon ] = useState(<Copy />)
+
+    const toast = useToast()
+
+    const handleClick = async () => {
+        await setClipboard(text)
+            .then(() => {
+                setIcon(<CheckLg />)
+                toast({
+                    title: "Copied!",
+                    status: "info",
+                    duration: 500,
+                    isClosable: false
+                })
+            })
+    }
+
+    const { subscribe } = useMulaneyQuote()
+
+    useEffect(() => {
+        subscribe(() => setIcon(<Copy />))
+    }, [])
 
     return (
         <IconButton 
             label="Copy"
             aria-label="Copy"
-            icon={<Copy />}
-            onClick={() => setClipboard(text)}
+            icon={icon}
+            onClick={handleClick}
             position="absolute"
-            top={0}
-            right={0}
+            top={-5}
+            right={-5}
+            variant="solid"
+            rounded="full"
+            iconprops={{
+                size: "1em"
+            }}
             {...props}
         />
     )

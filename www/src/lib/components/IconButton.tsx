@@ -5,19 +5,19 @@ import type { EmotionIconProps } from "../../../node_modules/emotion-icons/types
 export interface Props extends IconButtonProps {
     label: string,
     as?: keyof HTMLElementTagNameMap,
-    tooltipProps?: Partial<TooltipProps>,
-    iconProps?: Partial<EmotionIconProps>
+    tooltipprops?: Partial<TooltipProps>,
+    iconprops?: Partial<EmotionIconProps>
 }
 
 const IconButton = forwardRef<Props, "button">(({ label, icon, ...props }, ref) => {
     return (
-        <Tooltip label={label} {...props.tooltipProps}>
+        <Tooltip label={label} {...props.tooltipprops}>
             <IconButton_
                 ref={ref}
                 variant="ghost"
                 icon={React.cloneElement(icon!, {
                     size: "2em",
-                    ...props.iconProps
+                    ...props.iconprops
                 })}
                 {...props}
             />

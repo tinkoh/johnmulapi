@@ -10,9 +10,12 @@ const Quote: React.FC<ContainerProps> = ({ ...props }) => {
 
     const { quote } = useMulaneyQuote()
 
+    const background = useColorModeValue("Background", "#1a202c")
+    const border = useColorModeValue("#e8ecf1", "#3f444e")
+
     if (quote === null) {
         return (
-            <Container {...props}>
+            <Container bgColor={background} {...props}>
                 <Center>
                     <Spinner color="facebook.400" />
                 </Center>
@@ -21,8 +24,8 @@ const Quote: React.FC<ContainerProps> = ({ ...props }) => {
     }
 
     return (
-        <Container {...props}>
-            <CopyButton text={quote} />
+        <Container bgColor={background} {...props}>
+            <CopyButton bgColor={background} border={2} borderColor={border} borderStyle="solid" text={quote} />
             <AnimatePresence>
                     <motion.div
                         initial={{ x: -100 }}
@@ -55,8 +58,6 @@ const Quote: React.FC<ContainerProps> = ({ ...props }) => {
 
 const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
 
-    const background = useColorModeValue("Background", "#1a202c")
-
     return (
         <Container_
             position="relative"
@@ -66,8 +67,6 @@ const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
             shadow="xl"
             borderWidth={2}
             w="100%"
-            overflow="hidden"
-            bgColor={background}
             {...props}
         >
             {children}

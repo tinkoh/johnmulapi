@@ -6,7 +6,8 @@ const MulaneyQuoteContext = createContext<QuoteContext | null>(null)
 interface QuoteContext {
   quote: string | null,
   fetch: () => void,
-  delayedFetch: (delay?: number) => Promise<unknown>
+  delayedFetch: (delay?: number) => Promise<unknown>,
+  subscribe: (fn: () => unknown) => void
 }
 
 export const MulaneyQuoteProvider: React.FC<{ children: React.ReactNode}> = ({ ...props }) => {
@@ -16,27 +17,37 @@ export const MulaneyQuoteProvider: React.FC<{ children: React.ReactNode}> = ({ .
   } = fetch_();
   const [quote, setQuote] = useState<string | null>(data);
 
+  const subscribers = useRef<(() => unknown)[]>([])
+
+  const subscribe = (fn: () => unknown) => {
+    subscribers.current = [...subscribers.current, fn]
+  }
+
   const fetch = () => {
     const {
       data: [data],
     } = fetch_();
 
     setQuote(data);
+    subscribers.current.forEach(fn => fn())
   };
 
   const delayedFetch = async (delay: number = 500) => {
-    let sleepTimeout = useRef<number | null>(null);
+    let sleepTimeout = useRef<NodeJS.Timeout | null>(null);
     
     if (sleepTimeout.current) clearTimeout(sleepTimeout.current)
 
     setQuote(null);
-    return new Promise((resolve, _reject) => {
+
+    await new Promise((resolve, _reject) => {
       sleepTimeout.current = setTimeout(resolve, delay);
     });
+
+    fetch()
   };
 
   return (
-    <MulaneyQuoteContext.Provider value={{ quote, fetch, delayedFetch }}>
+    <MulaneyQuoteContext.Provider value={{ quote, fetch, delayedFetch, subscribe }}>
       {props.children}
     </MulaneyQuoteContext.Provider>
   )
