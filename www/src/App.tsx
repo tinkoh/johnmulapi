@@ -9,12 +9,13 @@ import MouseFollow from "./lib/components/MouseFollow"
 import Wrapper from "./lib/components/Wrapper"
 import Footer from "./lib/Footer"
 import { MulaneyQuoteProvider } from "./lib/hooks/useMulaneyQuote"
+import { ViewProvider } from "./lib/hooks/useView"
 
 function App() {
-
   return (
     <ChakraProvider>
     <MulaneyQuoteProvider>
+    <ViewProvider>
     <Wrapper>
       <Toolbar />
       <Heading />
@@ -24,6 +25,7 @@ function App() {
       <Footer />
       <MouseFollow />
     </Wrapper>
+    </ViewProvider>
     </MulaneyQuoteProvider>
     </ChakraProvider>
   )

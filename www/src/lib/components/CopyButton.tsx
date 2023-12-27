@@ -3,7 +3,7 @@ import useCopyToClipboard from "../hooks/useCopyToClipboard";
 import useMulaneyQuote from "../hooks/useMulaneyQuote";
 
 import { Copy } from "@emotion-icons/boxicons-solid/Copy"
-import { CheckLg } from "@emotion-icons/bootstrap/CheckLg"
+import { Check } from "@emotion-icons/entypo/Check"
 import { useColorModeValue, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -24,7 +24,7 @@ const CopyButton = ({
     const handleClick = async () => {
         await setClipboard(text)
             .then(() => {
-                setIcon(<CheckLg />)
+                setIcon(<Check />)
                 toast({
                     title: "Copied!",
                     status: "info",

@@ -6,7 +6,7 @@ import useMulaneyQuote from "./hooks/useMulaneyQuote";
 
 const Controls = () => {
 
-    const { fetch } = useMulaneyQuote()
+    const { delayedFetch } = useMulaneyQuote()
 
     return (
         <Center my={6}>
@@ -14,7 +14,7 @@ const Controls = () => {
                 label="Refresh"
                 aria-label="Refresh"
                 icon={<Refresh />}
-                onClick={fetch}
+                onClick={() => delayedFetch(Math.random() * 1000)}
             />
         </Center>
     )
