@@ -1,11 +1,15 @@
-import React from 'react'
 import { 
     Container, Heading, List, ListItem, Box, useColorModeValue
 } from '@chakra-ui/react'
 
 import quotes from "../../../quotes/quotes.min.json"
+import useView, { ViewEnum } from './hooks/useView'
 
 const QuoteList = () => {
+
+    const { view } = useView()
+
+    if (view !== ViewEnum.QUOTE_LIST) return null
 
     const itemBg = useColorModeValue("gray.200", "gray.400")
 

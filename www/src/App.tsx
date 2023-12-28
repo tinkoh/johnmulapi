@@ -1,4 +1,5 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import theme from "../styles/theme"
 
 import Heading from "./lib/Heading"
 import Image from "./lib/Image"
@@ -15,7 +16,7 @@ import HowToUse from "./lib/HowToUse"
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={extendTheme(theme)}>
     <MulaneyQuoteProvider>
     <ViewProvider>
     <Wrapper>

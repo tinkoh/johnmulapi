@@ -5,8 +5,13 @@ import { useColorModeValue, useToast } from "@chakra-ui/react"
 import { Terminal } from "@emotion-icons/bootstrap/Terminal"
 import { Javascript, Python } from "emotion-icons/boxicons-logos"
 import CopyButton from "./components/CopyButton"
+import useView, { ViewEnum } from "./hooks/useView"
 
 const HowToUse = () => {
+
+  const { view } = useView()
+
+  if (view !== ViewEnum.HOW_TO_USE) return null
 
     const codes = [
 `curl https://johnmulapi.givensuman.com/api`,
