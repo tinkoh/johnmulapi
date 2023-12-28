@@ -17,7 +17,6 @@ export const ViewProvider: React.FC<{ children: React.ReactNode}> = ({ ...props 
     const [ view, setView ] = useState<ViewEnum | null>(null)
 
     const setView_ = (view: ViewEnum | null) => {
-        setView(null)
         setView(view)
     }
 

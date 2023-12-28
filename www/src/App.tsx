@@ -10,6 +10,8 @@ import Wrapper from "./lib/components/Wrapper"
 import Footer from "./lib/Footer"
 import { MulaneyQuoteProvider } from "./lib/hooks/useMulaneyQuote"
 import { ViewProvider } from "./lib/hooks/useView"
+import QuoteList from "./lib/QuoteList"
+import HowToUse from "./lib/HowToUse"
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Heading />
       <Controls />
       <Quote />
+      <QuoteList />
+      <HowToUse />
       <Image />
       <Footer />
       <MouseFollow />

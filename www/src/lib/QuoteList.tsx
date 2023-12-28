@@ -3,7 +3,7 @@ import {
     Container, Heading, List, ListItem, Box, useColorModeValue
 } from '@chakra-ui/react'
 
-import quotes from "../../quotes/quotes.min.json"
+import quotes from "../../../quotes/quotes.min.json"
 
 const QuoteList = () => {
 

@@ -9,7 +9,7 @@ export interface Props extends IconButtonProps {
     iconprops?: Partial<EmotionIconProps>
 }
 
-const IconButton = forwardRef<Props, "button">(({ label, icon, ...props }, ref) => {
+const IconButton = forwardRef<Props, "button">(({ label, icon, onClick, disabled, ...props }, ref) => {
     return (
         <Tooltip label={label} {...props.tooltipprops}>
             <IconButton_
@@ -19,6 +19,8 @@ const IconButton = forwardRef<Props, "button">(({ label, icon, ...props }, ref) 
                     size: "2em",
                     ...props.iconprops
                 })}
+                disabled={disabled}
+                onClick={!disabled ? onClick : undefined}
                 {...props}
             />
         </Tooltip>

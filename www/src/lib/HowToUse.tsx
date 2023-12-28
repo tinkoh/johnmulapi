@@ -1,10 +1,10 @@
-import React from "react"
 import {
     Container, Heading, Tabs, Tab, TabList, TabPanels, TabPanel, Code, Text, IconButton, Tooltip, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Divider, Box
 } from "@chakra-ui/react"
 import { useColorModeValue, useToast } from "@chakra-ui/react"
-import { HiTerminal } from "react-icons/hi"
-import { FaJsSquare, FaPython, FaRegCopy } from "react-icons/fa"
+import { Terminal } from "@emotion-icons/bootstrap/Terminal"
+import { Javascript, Python } from "emotion-icons/boxicons-logos"
+import CopyButton from "./components/CopyButton"
 
 const HowToUse = () => {
 
@@ -61,9 +61,9 @@ print(quote)
             mt="1em"
           >
             <TabList>
-              <Tab fontSize="xl"><HiTerminal /></Tab>
-              <Tab fontSize="lg"><FaJsSquare /></Tab>
-              <Tab fontSize="lg"><FaPython /></Tab>
+              <Tab fontSize="xl"><Terminal /></Tab>
+              <Tab fontSize="lg"><Javascript /></Tab>
+              <Tab fontSize="lg"><Python /></Tab>
             </TabList>
             <TabPanels>
               {codes.map((code, index) => (
@@ -82,20 +82,9 @@ print(quote)
                       minWidth="fit-content"
                     >
                       <Tooltip label="Copy">
-                        <IconButton 
-                          aria-label="Copy"
-                          icon={<FaRegCopy />}
-                          position="absolute"
-                          right="0" top="0"
-                          mt="0.25em" mr="0.25em"
-                          variant="ghost"
-                          py={1}
-                          _focus={{
-                            boxShadow: "none",
-                            backgroundColor: copyButtonBackground
-                          }}
-                          onClick={() => copy(code)}
-                        />
+                      <CopyButton 
+                        text={code}
+                      />
                       </Tooltip>
                       <Text>
                         {code}
@@ -157,20 +146,7 @@ print(quote)
               fontWeight="semibold"
             >
               <Tooltip label="Copy">
-                <IconButton 
-                  aria-label="Copy"
-                  icon={<FaRegCopy />}
-                  position="absolute"
-                  right="0" top="0"
-                  mt="0.25em" mr="0.25em"
-                  variant="ghost"
-                  py={1}
-                  _focus={{
-                    boxShadow: "none",
-                    backgroundColor: copyButtonBackground
-                  }}
-                  onClick={() => copy('curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50')}
-                />
+                <CopyButton text="curl https://johnmulapi.givensuman.com/api?quantity=3&maxLength=50'" />
               </Tooltip>
               <Text color="gray.500">
                 # example usage

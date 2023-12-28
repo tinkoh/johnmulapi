@@ -17,14 +17,16 @@ const CopyButton = ({
 }: Props) => {
 
     const [ _clipboard, setClipboard ] = useCopyToClipboard()
-    const [ icon, setIcon ] = useState(<Copy />)
+    const [ isCopied, setIsCopied ] = useState(false)
+
+    const icon = isCopied ? <Check /> : <Copy />
 
     const toast = useToast()
 
     const handleClick = async () => {
         await setClipboard(text)
             .then(() => {
-                setIcon(<Check />)
+                setIsCopied(true)
                 toast({
                     title: "Copied!",
                     status: "info",
@@ -34,11 +36,7 @@ const CopyButton = ({
             })
     }
 
-    const { subscribe } = useMulaneyQuote()
-
-    useEffect(() => {
-        subscribe(() => setIcon(<Copy />))
-    }, [])
+    useMulaneyQuote().subscribe(() => setIsCopied(false))
 
     return (
         <IconButton 
