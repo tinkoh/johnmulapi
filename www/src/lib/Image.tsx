@@ -37,7 +37,7 @@ const Image_ = () => {
       ref={imageRef}
       src={mulaneyImage}
       alt="John Mulaney"
-      mt="2em"
+      mt={8}
       mx="auto"
       zIndex={2}
       style={{

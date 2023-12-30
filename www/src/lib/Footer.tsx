@@ -6,8 +6,8 @@ const Footer = () => {
       fontWeight="semibold"
       mx="auto"
       w="fit-content"
-      mt="0.5em"
-      mb="10%"
+      mt={4}
+      mb={24}
       userSelect="none"
     >
       Made with 💙 by Given Suman

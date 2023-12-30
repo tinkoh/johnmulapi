@@ -42,7 +42,7 @@ const QuoteList = () => {
     <AnimatePresence>
       {show && (
         <motion.div
-          key="Quote List"
+          key="quote list"
           initial={{ opacity: 0, height: 0, marginTop: 0 }}
           animate={{ opacity: 1, height: "auto", marginTop: "2em" }}
           exit={{ opacity: 0, height: 0, marginTop: 0 }}
@@ -60,18 +60,18 @@ const QuoteList = () => {
             <List
               overflowY="scroll"
               h={250}
-              py="0.5em"
-              px="0.25em"
+              py={2}
+              px={1}
               borderWidth={2}
-              borderRadius="0.25em"
+              rounded="sm"
             >
               {quotes.map((quote, index) => (
-                <Box key={index} my="0.25em">
+                <Box key={index} my={1}>
                   <ListItem
-                    borderRadius="0.25em"
+                    rounded="sm"
                     fontWeight="semibold"
                     bgColor={index % 2 ? itemBg : "auto"}
-                    p="0.5em"
+                    p={2}
                   >
                     {quote}
                   </ListItem>

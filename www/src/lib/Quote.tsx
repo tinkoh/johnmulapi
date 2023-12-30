@@ -62,9 +62,9 @@ const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
   return (
     <Container_
       position="relative"
-      p="1em"
+      p={4}
       mb={2.5}
-      borderRadius="0.25em"
+      rounded="lg"
       shadow="xl"
       borderWidth={2}
       w="100%"

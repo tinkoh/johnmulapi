@@ -56,7 +56,7 @@ print(quote)
             <Heading size="md" userSelect="none">
               How do I use this?
             </Heading>
-            <Tabs variant="enclosed-colored" mt="1em">
+            <Tabs variant="enclosed-colored" mt={2}>
               <TabList>
                 {[<Terminal />, <Javascript />, <Python />].map(
                   (icon, index) => (
@@ -79,7 +79,7 @@ print(quote)
               </TabPanels>
             </Tabs>
             <Divider my={6} />
-            <Heading mt="1em" mb="0.5em" size="md" userSelect="none">
+            <Heading mt={4} mb={2} size="md" userSelect="none">
               Parameters
             </Heading>
             <TableContainer pb={1}>
@@ -112,7 +112,7 @@ print(quote)
             </TableContainer>
             <CodeBlock code="curl https://api.johnmulapi.givensuman.com/?quantity=3&maxLength=50" />
             <Divider my={6} />
-            <Heading my="1em" size="md" userSelect="none">
+            <Heading my={4} size="md" userSelect="none">
               Can I use this?
             </Heading>
             <Text userSelect="none">Please do! Let me know how it goes.</Text>

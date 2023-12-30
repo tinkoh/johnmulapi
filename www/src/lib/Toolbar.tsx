@@ -11,13 +11,12 @@ const Toolbar = () => {
   return (
     <Box
       w="100%"
-      h="3.5em"
-      pt={4}
+      pt={8}
       mb="5%"
       display="flex"
       justifyContent="flex-end"
       alignItems="center"
-      pr="1.5em"
+      pr={5}
       maxW="1600px"
     >
       <HStack spacing={4}>
