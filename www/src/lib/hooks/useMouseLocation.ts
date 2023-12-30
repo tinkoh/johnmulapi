@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 const useMouseLocation = () => {
   const [mouseLocation, setMouseLocation] = useState({
-    x: window.screen.width / 2 ?? 0,
-    y: window.screen.height / 2 ?? 0,
+    x: window.screen.width / 2,
+    y: window.screen.height / 2,
   });
 
   const updateMouseLocation = (e: MouseEvent) => {
