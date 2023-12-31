@@ -6,7 +6,6 @@ export interface Request {
   unique?: boolean;
   minLength?: number;
   maxLength?: number;
-  censor?: boolean;
 }
 
 export interface Response {
@@ -25,7 +24,6 @@ export function fetch({
   unique = false,
   minLength = undefined,
   maxLength = undefined,
-  censor = false,
 }: Request = {}): Response {
   const data: string[] = [];
   let quotes: string[] = [...quotes_];

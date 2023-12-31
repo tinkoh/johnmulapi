@@ -1,8 +1,18 @@
 {
   "name": "johnmulapi",
+  "type": "module",
   "module": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "minify": "gulp",
+    "server:prepare": "nitropack prepare",
+    "server:dev": "nitropack dev",
+    "server:build": "nitropack build",
+    "server:preview": "node .output/server/index.mjs",
+    "www:dev": "vite",
+    "www:build": "tsc && vite build",
+    "www:lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "www:preview": "vite preview"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
