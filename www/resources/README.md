@@ -1,0 +1,1 @@
+Ran into issues publishing a Vite app on Netlify as a monorepo, and needed to move certain dependencies into `/www` directory. Can use `moveresources` command, but will need to update relative path in `routes/index.ts` to point to `quotes/quotes.min.json` correctly.

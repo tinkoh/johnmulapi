@@ -9,7 +9,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 
-import quotes_ from "../../../quotes/quotes.min.json";
+import quotes_ from "../../resources/quotes/quotes.min.json";
 import useView, { ViewEnum } from "./hooks/useView";
 import { AnimatePresence, motion } from "framer-motion";
 import Fuse, { IFuseOptions } from "fuse.js";
