@@ -15,7 +15,6 @@ import {
   Th,
   Td,
   TableContainer,
-  Divider,
   Box,
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -56,7 +55,7 @@ print(quote)
             <Heading size="md" userSelect="none">
               How do I use this?
             </Heading>
-            <Tabs variant="enclosed-colored" mt={2}>
+            <Tabs variant="enclosed-colored" mt={6}>
               <TabList>
                 {[<Terminal />, <Javascript />, <Python />].map(
                   (icon, index) => (
@@ -78,16 +77,16 @@ print(quote)
                 ))}
               </TabPanels>
             </Tabs>
-            <Divider my={6} />
-            <Heading mt={4} mb={2} size="md" userSelect="none">
+            <Heading mt={12} size="md" userSelect="none">
               Parameters
             </Heading>
-            <TableContainer pb={1}>
+            <TableContainer pb={1} mt={6}>
               <Table>
                 <Thead>
                   <Tr>
                     <Th>Name</Th>
                     <Th>Type</Th>
+                    <Th>Default</Th>
                     <Th>Description</Th>
                   </Tr>
                 </Thead>
@@ -95,24 +94,43 @@ print(quote)
                   <Tr>
                     <Td>quantity</Td>
                     <Td>number</Td>
+                    <Td>1</Td>
                     <Td>Number of quotes to return</Td>
                   </Tr>
                   <Tr>
                     <Td>maxLength</Td>
                     <Td>number</Td>
-                    <Td>Maximum length of quote(s)</Td>
+                    <Td>undefined</Td>
+                    <Td>Maximum length of quotes to return</Td>
                   </Tr>
                   <Tr>
                     <Td>minLength</Td>
                     <Td>number</Td>
-                    <Td>Minimum length of quote(s)</Td>
+                    <Td>undefined</Td>
+                    <Td>Minimum length of quotes to return</Td>
+                  </Tr>
+                  <Tr>
+                    <Td>unique</Td>
+                    <Td>boolean</Td>
+                    <Td>false</Td>
+                    <Td>
+                      Whether the returned quotes (if multiple) must be unique
+                    </Td>
+                  </Tr>
+                  <Tr>
+                    <Td>censor</Td>
+                    <Td>boolean</Td>
+                    <Td>false</Td>
+                    <Td>Whether to censor explicit words out of the quotes</Td>
                   </Tr>
                 </Tbody>
               </Table>
             </TableContainer>
-            <CodeBlock code="curl https://api.johnmulapi.givensuman.com/?quantity=3&maxLength=50" />
-            <Divider my={6} />
-            <Heading my={4} size="md" userSelect="none">
+            <CodeBlock
+              code="curl https://api.johnmulapi.givensuman.com/?quantity=3&maxLength=50"
+              mt={6}
+            />
+            <Heading mt={12} mb={2} size="md" userSelect="none">
               Can I use this?
             </Heading>
             <Text userSelect="none">Please do! Let me know how it goes.</Text>

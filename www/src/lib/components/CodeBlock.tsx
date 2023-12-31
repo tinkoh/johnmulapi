@@ -15,6 +15,7 @@ const CodeBlock = ({ code, ...props }: CodeBlockProps) => {
         rounded="md"
         fontWeight="semibold"
         overflowX="scroll"
+        colorScheme="facebook"
         {...props}
       >
         <Text minWidth="fit-content" pr={4}>

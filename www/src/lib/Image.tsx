@@ -8,18 +8,18 @@ const Image_ = () => {
   const mouseLocation = useMouseLocation();
 
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const bounds = imageRef.current?.getBoundingClientRect();
+  const bounds = imageRef.current?.getBoundingClientRect() || {
+    x: 0,
+    y: 0,
+  };
 
   const CONSTRAINT = 150;
   const LIMIT = 2.5;
 
-  let bounding = mouseLocation;
-  if (bounds) {
-    bounding = {
-      x: (mouseLocation.x - bounds.x - bounds.x / 2) / CONSTRAINT,
-      y: (mouseLocation.y - bounds.y - bounds.y / 2) / CONSTRAINT,
-    };
-  }
+  const bounding = {
+    x: (mouseLocation.x - bounds.x - bounds.x / 2) / CONSTRAINT,
+    y: (mouseLocation.y - bounds.y - bounds.y / 2) / CONSTRAINT,
+  };
 
   const perspective = {
     x:
@@ -41,7 +41,7 @@ const Image_ = () => {
       mx="auto"
       zIndex={2}
       style={{
-        transform: `perspective(100px) rotateX(${perspective.x}deg) rotateY(${perspective.y}deg)`,
+        transform: `perspective(100px) rotateX(${perspective.y}deg) rotateY(${perspective.x}deg)`,
       }}
     />
   );

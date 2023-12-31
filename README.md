@@ -2,7 +2,7 @@
 
 # johnmulapi
 
-An API for John Mulaney quotes.
+An API for John Mulaney quotes
 
 [johnmulapi.givensuman.com](https://johnmulapi.givensuman.com)
 
