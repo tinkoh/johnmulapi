@@ -12,7 +12,7 @@ import {
 import quotes_ from "../../../quotes/quotes.min.json";
 import useView, { ViewEnum } from "./hooks/useView";
 import { AnimatePresence, motion } from "framer-motion";
-import Fuse from "fuse.js";
+import Fuse, { IFuseOptions } from "fuse.js";
 
 const QuoteList = () => {
   const { view } = useView();
@@ -31,7 +31,7 @@ const QuoteList = () => {
         findAllMatches: true,
         shouldSort: true,
         ignoreLocation: true,
-      } as any),
+      } as IFuseOptions<string>),
     []
   );
 

@@ -16,7 +16,7 @@ const useMouseLocation = () => {
   useEffect(() => {
     window.addEventListener("mousemove", updateMouseLocation);
     return () => window.removeEventListener("mousemove", updateMouseLocation);
-  }, [window]);
+  }, []);
 
   return mouseLocation;
 };

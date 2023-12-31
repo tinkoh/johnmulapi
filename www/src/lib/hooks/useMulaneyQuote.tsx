@@ -40,14 +40,14 @@ export const MulaneyQuoteProvider: React.FC<{ children: React.ReactNode }> = ({
     setQuote(data);
   };
 
-  let sleepTimeout = useRef<NodeJS.Timeout | null>(null);
+  const sleepTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const delayedFetch = async (delay: number = 500) => {
     if (sleepTimeout.current) clearTimeout(sleepTimeout.current);
 
     setQuote(null);
 
-    await new Promise((resolve, _reject) => {
+    await new Promise((resolve) => {
       sleepTimeout.current = setTimeout(resolve, delay);
     });
 
