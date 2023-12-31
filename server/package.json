@@ -1,17 +1,13 @@
 {
+  "dependencies": {
+    "nitropack": "latest",
+    "ufo": "^1.3.2"
+  },
   "private": true,
   "scripts": {
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
     "preview": "node .output/server/index.mjs"
-  },
-  "dependencies": {
-    "bad-words": "^3.0.4",
-    "nitropack": "latest",
-    "ufo": "^1.3.2"
-  },
-  "devDependencies": {
-    "@types/bad-words": "^3.0.3"
   }
 }

@@ -117,12 +117,6 @@ print(quote)
                       Whether the returned quotes (if multiple) must be unique
                     </Td>
                   </Tr>
-                  <Tr>
-                    <Td>censor</Td>
-                    <Td>boolean</Td>
-                    <Td>false</Td>
-                    <Td>Whether to censor explicit words out of the quotes</Td>
-                  </Tr>
                 </Tbody>
               </Table>
             </TableContainer>

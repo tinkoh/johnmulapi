@@ -51,7 +51,6 @@ print(quote)
 | minLength | number  | undefined | Minimum length of the quotes to return                   |
 | maxLength | number  | undefined | Maximum length of the quotes to return                   |
 | unique    | boolean | false     | Whether the returned quotes (if multiple) must be unique |
-| censor    | boolean | false     | Whether to censor explicit words out of the quotes       |
 
 ```
 # example usage

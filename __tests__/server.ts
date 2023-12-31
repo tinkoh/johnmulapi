@@ -1,4 +1,4 @@
-import { fetch, __Filter__ } from "../server/routes";
+import { fetch } from "../server/routes";
 import "jest";
 
 describe("fetch", () => {
@@ -30,15 +30,6 @@ describe("fetch", () => {
     response.data.forEach((quote) => {
       expect(quote.length).toBeGreaterThanOrEqual(10);
       expect(quote.length).toBeLessThanOrEqual(20);
-    });
-    expect(response.status).toBe(200);
-  });
-
-  it("censors explicit content when requested", () => {
-    const response = fetch({ quantity: 5, censor: true });
-    const filter = new __Filter__();
-    response.data.forEach((quote) => {
-      expect(quote).toEqual(filter.clean(quote));
     });
     expect(response.status).toBe(200);
   });

@@ -1,5 +1,4 @@
 import { $URL, type QueryObject } from "ufo";
-import Filter from "bad-words";
 import quotes_ from "../../quotes/quotes.min.json";
 
 export interface Request {
@@ -30,7 +29,6 @@ export function fetch({
 }: Request = {}): Response {
   const data: string[] = [];
   let quotes: string[] = [...quotes_];
-  const filter = new Filter();
 
   try {
     if (quantity < 0)
@@ -39,9 +37,6 @@ export function fetch({
         status: 400,
         message: "You requested a negative amount of quotes my dude.",
       };
-
-    if (censor === true)
-      quotes = [...quotes.map((quote) => filter.clean(quote))];
 
     if (minLength)
       quotes = [...quotes.filter((quote) => quote.length >= minLength)];
@@ -115,8 +110,6 @@ function parseQuery(query: QueryObject) {
 export default function eventHandler(event: { path: string }) {
   const query = new $URL(event.path).query;
   const parsedQuery = parseQuery(query);
-  
+
   return fetch({ ...parsedQuery });
 }
-
-export const __Filter__ = Filter;
