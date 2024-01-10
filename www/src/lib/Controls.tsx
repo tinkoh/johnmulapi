@@ -27,12 +27,14 @@ const Controls = () => {
           aria-label="How to Use"
           icon={<QuestionCircle />}
           onClick={() => handleViewClick(ViewEnum.HOW_TO_USE)}
+          isActive={view === ViewEnum.HOW_TO_USE}
         />
         <IconButton
           label="List Quotes"
           aria-label="List Quotes"
           icon={<List />}
           onClick={() => handleViewClick(ViewEnum.QUOTE_LIST)}
+          isActive={view === ViewEnum.QUOTE_LIST}
         />
         <IconButton
           label="Refresh"
