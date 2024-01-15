@@ -21,7 +21,7 @@ const MouseFollow = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [blur, setBlur] = useState(500);
   const randomizeBlur = () => {
-    setBlur(Math.random() * (1000 - 500) + 500);
+    setBlur(Math.random() * 500 + 500);
   };
   useEffect(() => {
     intervalRef.current = setInterval(randomizeBlur, 1000);

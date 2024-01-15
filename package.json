@@ -5,14 +5,15 @@
   "scripts": {
     "test": "jest",
     "minify": "gulp",
-    "server:prepare": "nitropack prepare",
-    "server:dev": "nitropack dev",
-    "server:build": "nitropack build",
-    "server:preview": "node .output/server/index.mjs",
-    "www:dev": "vite",
-    "www:build": "tsc && vite build",
-    "www:lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "www:preview": "vite preview"
+    "server:prepare": "(cd server && nitropack prepare);",
+    "server:dev": "(cd server && nitropack dev);",
+    "server:build": "(cd server && nitropack build);",
+    "server:preview": "(cd server && node .output/server/index.mjs);",
+    "www:install": "(cd www && bun install);",
+    "www:dev": "(cd www && vite);",
+    "www:build": "(cd www && tsc && vite build);",
+    "www:lint": "(cd www && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0);",
+    "www:preview": "(cd www && vite preview);"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
@@ -20,8 +21,10 @@
     "del": "^7.1.0",
     "eslint": "^8.56.0",
     "gulp": "^4.0.2",
+    "gulp-exec": "^5.0.0",
     "gulp-json-minify": "^1.2.3",
     "gulp-rename": "^2.0.0",
+    "gulp-tap": "^2.0.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"

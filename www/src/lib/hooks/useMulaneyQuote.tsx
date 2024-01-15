@@ -6,7 +6,7 @@ import {
   type Context,
   useEffect,
 } from "react";
-import { fetch } from "../../../resources/routes";
+import fetch from "../../../../server/fetch";
 
 const MulaneyQuoteContext = createContext<QuoteContext | null>(null);
 
