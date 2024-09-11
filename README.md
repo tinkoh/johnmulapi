@@ -54,7 +54,7 @@ print(quote)
 
 ```
 # example usage
-curl https://api.johnmulapi.givensuman.com/?quantity=5&unique=true&maxLength=75
+curl 'https://api.johnmulapi.givensuman.com/?quantity=5&unique=true&maxLength=75'
 ```
 
 ### Can I use this in a project?
