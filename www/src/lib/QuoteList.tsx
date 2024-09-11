@@ -18,7 +18,7 @@ const QuoteList = () => {
   const { view } = useView();
   const show = view === ViewEnum.QUOTE_LIST;
 
-  const itemBg = useColorModeValue("facebook.100", "facebook.900");
+  const itemBg = useColorModeValue("gray.100", "gray.700");
 
   const [input, setInput] = useState("");
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {

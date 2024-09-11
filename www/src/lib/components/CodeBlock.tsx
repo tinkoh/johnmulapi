@@ -1,4 +1,4 @@
-import { Box, Code, type CodeProps, Text } from "@chakra-ui/react";
+import { Box, Code, type CodeProps, Text, useColorModeValue } from "@chakra-ui/react";
 import CopyButton from "./CopyButton";
 
 interface CodeBlockProps extends CodeProps {
@@ -6,6 +6,12 @@ interface CodeBlockProps extends CodeProps {
 }
 
 const CodeBlock = ({ code, ...props }: CodeBlockProps) => {
+
+  const bg = useColorModeValue(
+    "gray.100",
+    "gray.700"
+  );
+
   return (
     <Box position="relative" boxShadow="lg">
       <Code
@@ -16,6 +22,7 @@ const CodeBlock = ({ code, ...props }: CodeBlockProps) => {
         fontWeight="semibold"
         overflowX="scroll"
         colorScheme="facebook"
+        bgColor={bg}
         {...props}
       >
         <Text minWidth="fit-content" pr={4}>
