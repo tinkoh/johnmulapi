@@ -121,7 +121,7 @@ print(quote)
               </Table>
             </TableContainer>
             <CodeBlock
-              code="curl https://api.johnmulapi.givensuman.com/?quantity=3&maxLength=50"
+              code="curl 'https://api.johnmulapi.givensuman.com/?quantity=3&maxLength=50'"
               mt={6}
             />
             <Heading mt={12} mb={2} size="md" userSelect="none">

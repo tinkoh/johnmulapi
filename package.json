@@ -10,10 +10,10 @@
     "server:build": "(cd server && nitropack build);",
     "server:preview": "(cd server && node .output/server/index.mjs);",
     "www:install": "(cd www && bun install);",
-    "www:dev": "(cd www && vite);",
-    "www:build": "(cd www && tsc && vite build);",
-    "www:lint": "(cd www && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0);",
-    "www:preview": "(cd www && vite preview);"
+    "www:dev": "(cd www && bun dev);",
+    "www:build": "(cd www && bun build);",
+    "www:lint": "(cd www && bun link);",
+    "www:preview": "(cd www && bun preview);"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
