@@ -1,10 +1,8 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"math"
@@ -65,7 +63,7 @@ func filter[T any](arr []T, f func(T) bool) []T {
 
 // Filters []string to meet parameters
 func filterQuotesByParameters(quotes []string, parameters APIParameters) ([]string, error) {
-	if parameters.quantity > len(quotes) {
+	if parameters.quantity > len(quotes) && parameters.unique {
 		return nil, errors.New("not enough quotes my dude")
 	}
 
@@ -82,7 +80,7 @@ func filterQuotesByParameters(quotes []string, parameters APIParameters) ([]stri
 		return true
 	})
 
-	if parameters.quantity > len(quotes) {
+	if parameters.quantity > len(quotes) && parameters.unique {
 		return nil, errors.New("not enough quotes matching your length requirements my dude")
 	}
 
@@ -165,12 +163,11 @@ func main() {
 			return
 		}
 
-		data, err := json.Marshal(filteredQuotes)
+		err = json.NewEncoder(w).Encode(filteredQuotes)
 		if err != nil {
 			http.Error(w, "something went wrong", http.StatusInternalServerError)
+			return
 		}
-
-		fmt.Fprintf(w, "%s", bytes.NewBuffer(data))
 	})
 
 	log.Println("Starting server on port 8080...")
