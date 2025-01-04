@@ -1,11 +1,17 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
+	"math"
 	"math/rand"
+	"net/http"
+	"net/url"
+	"strconv"
 )
 
 // Returns a []string containing all of the quotes
@@ -80,7 +86,7 @@ func filterQuotesByParameters(quotes []string, parameters APIParameters) ([]stri
 		return nil, errors.New("not enough quotes matching your length requirements my dude")
 	}
 
-	data := make([]string, parameters.quantity)
+	var data []string
 
 	if parameters.unique {
 		for range parameters.quantity {
@@ -102,10 +108,71 @@ func filterQuotesByParameters(quotes []string, parameters APIParameters) ([]stri
 	return data, nil
 }
 
-func main() {
-	data := readQuotesFromFile()
-
-	for i := range data {
-		println(data[i])
+// Create APIParameters off of a URL query
+func parseQueryIntoParameters(query url.Values) (APIParameters, error) {
+	parameters := APIParameters{
+		quantity:  1,
+		maxLength: math.MaxInt,
+		minLength: math.MinInt,
+		unique:    false,
 	}
+
+	var err error
+
+	if query.Has("quantity") {
+		parameters.quantity, err = strconv.Atoi(query.Get("quantity"))
+	}
+
+	if query.Has("maxLength") {
+		parameters.maxLength, err = strconv.Atoi(query.Get("maxLength"))
+	}
+
+	if query.Has("minLength") {
+		parameters.minLength, err = strconv.Atoi(query.Get("minLength"))
+	}
+
+	if query.Has("unique") {
+		parameters.unique, err = strconv.ParseBool(query.Get("unique"))
+	}
+
+	return parameters, err
+}
+
+func main() {
+	quotes := readQuotesFromFile()
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.Error(w, "not found fam", 404)
+			return
+		}
+
+		query, err := url.ParseQuery(r.URL.RawQuery)
+		if err != nil {
+			http.Error(w, "bad request fam", http.StatusBadRequest)
+			return
+		}
+
+		parameters, err := parseQueryIntoParameters(query)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusUnprocessableEntity)
+			return
+		}
+
+		filteredQuotes, err := filterQuotesByParameters(quotes, parameters)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		data, err := json.Marshal(filteredQuotes)
+		if err != nil {
+			http.Error(w, "something went wrong", http.StatusInternalServerError)
+		}
+
+		fmt.Fprintf(w, "%s", bytes.NewBuffer(data))
+	})
+
+	log.Println("Starting server on port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
